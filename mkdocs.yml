@@ -8,8 +8,7 @@ nav :
     - Ahmed Body : baramFlow tutorial/2023-09-05-AhmedBody-post.md
     - Mixing Pipe : baramFlow tutorial/2023-09-05-MixingPipe-post.md
   - baramFlow User Guide :
-    - Ahmed Body : baramFlow tutorial/2023-09-05-AhmedBody-post.md
-    - Mixing Pipe : baramFlow tutorial/2023-09-05-MixingPipe-post.md
+    - Introduction : baramFlow User Guide/2023-09-05-introduction-post.md
 markdown_extensions:
   - pymdownx.arithmatex  # 수식 렌더링을 위한 확장
   - pymdownx.superfences  # 코드 블록을 위한 확장
