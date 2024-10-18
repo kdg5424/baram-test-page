@@ -1,0 +1,28 @@
+site_name: BARAM Page
+nav :
+- home : index.md
+- installation : installation.markdown
+- release notes : release_notes.markdown
+- Guide :
+  - baramFlow Tutorial Guide :
+    - Ahmed Body : baramFlow tutorial/2023-09-05-AhmedBody-post.md
+    - Mixing Pipe : baramFlow tutorial/2023-09-05-MixingPipe-post.md
+  - baramFlow User Guide :
+    - Ahmed Body : baramFlow tutorial/2023-09-05-AhmedBody-post.md
+    - Mixing Pipe : baramFlow tutorial/2023-09-05-MixingPipe-post.md
+markdown_extensions:
+  - pymdownx.arithmatex  # 수식 렌더링을 위한 확장
+  - pymdownx.superfences  # 코드 블록을 위한 확장
+  - pymdownx.betterem  # 강조 스타일 향상
+  - pymdownx.tilde  # 취소선 추가
+  - pymdownx.tasklist  # 체크리스트 스타일 지원
+  - pymdownx.emoji  # 이모지 지원
+
+extra_javascript:
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdnjs.cloudflare.com/ajax/libs/MathJax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML
+
+extra_css:
+  - stylesheets/custom.css
+
+theme: material
