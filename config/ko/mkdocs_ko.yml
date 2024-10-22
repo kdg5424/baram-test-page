@@ -7,12 +7,12 @@ theme:
   language: ko
 
 nav:
-  - 홈: ../../docs/ko/index.md
-  - 설치: ../../docs/ko/installation.md
-  - 공개 노트: ../../docs/ko/release_notes.md
+  - 홈: /docs/ko/index.md
+  - 설치: /docs/ko/installation.md
+  - 공개 노트: /docs/ko/release_notes.md
   - 바람플로우 튜토리얼 가이드 :
-    - Mixing Pipe: ../../docs/ko/baramFlow tutorial/2023-09-05-MixingPipe-post.md
-    - Ahmed Body: ../../docs/ko/baramFlow tutorial/2023-09-05-AhmedBody-post.md
+    - Mixing Pipe: /docs/ko/baramFlow tutorial/2023-09-05-MixingPipe-post.md
+    - Ahmed Body: /docs/ko/baramFlow tutorial/2023-09-05-AhmedBody-post.md
 
 extra_javascript:
   - https://polyfill.io/v3/polyfill.min.js?features=es6
@@ -25,11 +25,11 @@ extra:
   alternate:
 
     - name: Korean
-      link: /baram-test-page/ko/
+      link: /ko/
       lang: ko
 
     - name: English
-      link: /baram-test-page/en/
+      link: /en/
       lang: en
 
 plugins:

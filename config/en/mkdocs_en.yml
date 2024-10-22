@@ -7,12 +7,12 @@ theme:
   language: en
 
 nav:
-  - Home: ../../docs/en/index.md
-  - Installation: ../../docs/en/installation.md
-  - Release Notes: ../../docs/en/release_notes.md
+  - Home: /docs/en/index.md
+  - Installation: /docs/en/installation.md
+  - Release Notes: /docs/en/release_notes.md
   - baramFlow Tutorial Guides :
-    - Mixing Pipe: ../../docs/en/baramFlow tutorial/2023-09-05-MixingPipe-post.md
-    - Ahmed Body: ../../docs/en/baramFlow tutorial/2023-09-05-AhmedBody-post.md
+    - Mixing Pipe: /docs/en/baramFlow tutorial/2023-09-05-MixingPipe-post.md
+    - Ahmed Body: /docs/en/baramFlow tutorial/2023-09-05-AhmedBody-post.md
 
 extra_javascript:
   - https://polyfill.io/v3/polyfill.min.js?features=es6
@@ -25,11 +25,11 @@ extra:
   alternate:
 
     - name: Korean
-      link: /baram-test-page/ko/
+      link: /ko/
       lang: ko
 
     - name: English
-      link: /baram-test-page/en/
+      link: /en/
       lang: en
 
 plugins:
