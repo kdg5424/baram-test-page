@@ -7,19 +7,19 @@ theme:
     - i18n
 
 nav:
-  - Home: docs/en/index.md
+  - Home: en/index.md
   - English:
-    - Installation: docs/en/installation.md
-    - Release Notes: docs/en/release_notes.md
+    - Installation: en/installation.md
+    - Release Notes: en/release_notes.md
     - baramFlow Tutorial Guides:
-      - Mixing Pipe: docs/en/baramFlow tutorial/2023-09-05-MixingPipe-post.md
-      - Ahmed Body: docs/en/baramFlow tutorial/2023-09-05-AhmedBody-post.md
+      - Mixing Pipe: en/baramFlow tutorial/2023-09-05-MixingPipe-post.md
+      - Ahmed Body: en/baramFlow tutorial/2023-09-05-AhmedBody-post.md
   - 한국어:
-    - Installation: docs/ko/installation.md
-    - Release Notes: docs/ko/release_notes.md
+    - Installation: ko/installation.md
+    - Release Notes: ko/release_notes.md
     - baramFlow Tutorial Guides:
-      - Mixing Pipe: docs/ko/baramFlow tutorial/2023-09-05-MixingPipe-post.md
-      - Ahmed Body: docs/ko/baramFlow tutorial/2023-09-05-AhmedBody-post.md
+      - Mixing Pipe: ko/baramFlow tutorial/2023-09-05-MixingPipe-post.md
+      - Ahmed Body: ko/baramFlow tutorial/2023-09-05-AhmedBody-post.md
 
 extra_javascript:
   - https://polyfill.io/v3/polyfill.min.js?features=es6
