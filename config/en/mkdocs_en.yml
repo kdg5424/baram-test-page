@@ -7,12 +7,12 @@ theme:
   language: en
 
 nav:
-  - Home: index.md
-  - Installation: installation.md
-  - Release Notes: release_notes.md
-  - baramFlow Tutorial Guide:
-    - Ahmed Body: baramFlow tutorial/2023-09-05-AhmedBody-post.md
-    - Mixing Pipe: baramFlow tutorial/2023-09-05-MixingPipe-post.md
+  - Home: ../../docs/en/index.md
+  - Installation: ../../docs/en/installation.md
+  - Release Notes: ../../docs/en/release_notes.md
+  - baramFlow Tutorial Guides :
+    - Mixing Pipe: ../../docs/en/baramFlow tutorial/2023-09-05-MixingPipe-post.md
+    - Ahmed Body: ../../docs/en/baramFlow tutorial/2023-09-05-AhmedBody-post.md
 
 extra_javascript:
   - https://polyfill.io/v3/polyfill.min.js?features=es6
