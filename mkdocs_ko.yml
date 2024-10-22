@@ -20,6 +20,9 @@ extra_css:
 
 extra:
   alternate:
+    - name: Korean
+      link: /baram-test-page/ko/
+      lang: ko
     - name: English
       link: /baram-test-page/en/
       lang: en
