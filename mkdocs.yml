@@ -7,7 +7,7 @@ theme:
     - i18n
 
 nav:
-  - Home: en/index.md
+  - Home: index.md
   - English:
     - Installation: en/installation.md
     - Release Notes: en/release_notes.md
