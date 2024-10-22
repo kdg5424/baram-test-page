@@ -21,5 +21,7 @@ extra_css:
 extra:
   alternate:
     - name: Korean
-      link: /ko/
+      link: /baram-test-page/ko
       lang: ko
+
+site_dir : site/en
