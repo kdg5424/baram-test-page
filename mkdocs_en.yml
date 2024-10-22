@@ -1,0 +1,25 @@
+site_name: BARAM Page
+theme:
+  name: material
+  language: en
+
+nav:
+  - Home: en/index.md
+  - Installation: en/installation.md
+  - Release Notes: en/release_notes.md
+  - baramFlow Tutorial Guide:
+      - Ahmed Body: en/baramFlow tutorial/2023-09-05-AhmedBody-post.md
+      - Mixing Pipe: en/baramFlow tutorial/2023-09-05-MixingPipe-post.md
+
+extra_javascript:
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdnjs.cloudflare.com/ajax/libs/MathJax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML
+
+extra_css:
+  - assets/css/custom.css
+
+extra:
+  alternate:
+    - name: Korean
+      link: /ko/
+      lang: ko
