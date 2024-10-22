@@ -1,0 +1,37 @@
+site_name: BARAM Page
+theme:
+  name: material
+  language: en
+  features:
+    - navigation.tabs
+    - i18n
+
+nav:
+  - Home: docs/en/index.md
+  - English:
+    - Installation: docs/en/installation.md
+    - Release Notes: docs/en/release_notes.md
+    - baramFlow Tutorial Guides:
+      - Mixing Pipe: docs/en/baramFlow tutorial/2023-09-05-MixingPipe-post.md
+      - Ahmed Body: docs/en/baramFlow tutorial/2023-09-05-AhmedBody-post.md
+  - 한국어:
+    - Installation: docs/ko/installation.md
+    - Release Notes: docs/ko/release_notes.md
+    - baramFlow Tutorial Guides:
+      - Mixing Pipe: docs/ko/baramFlow tutorial/2023-09-05-MixingPipe-post.md
+      - Ahmed Body: docs/ko/baramFlow tutorial/2023-09-05-AhmedBody-post.md
+
+extra_javascript:
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdnjs.cloudflare.com/ajax/libs/MathJax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML
+
+extra_css:
+  - assets/css/custom.css
+
+plugins:
+  - search:
+  - i18n:
+      default_language: en
+      languages:
+        en: Enlish
+        ko: 한국어
