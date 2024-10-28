@@ -9,6 +9,10 @@
       
       
       
+        <link rel="prev" href="../nextfoam/">
+      
+      
+        <link rel="next" href="../numerical/">
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
@@ -16,7 +20,7 @@
     
     
       
-        <title>01. Introduction - BARAM Page</title>
+        <title>nomenclature - BARAM Page</title>
       
     
     
@@ -60,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#baram" class="md-skip">
+        <a href="#_1" class="md-skip">
           Skip to content
         </a>
       
@@ -94,7 +98,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              01. Introduction
+              nomenclature
             
           </span>
         </div>
@@ -196,10 +200,12 @@
         
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
+      <li class="md-tabs__item md-tabs__item--active">
         <a href="../install/" class="md-tabs__link">
           
   
@@ -443,23 +449,28 @@
       
   
   
+    
   
   
+  
     
     
     
-      
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
             
   
   <span class="md-ellipsis">
@@ -470,7 +481,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             한국어
@@ -611,6 +622,8 @@
                 
   
   
+    
+  
   
   
     
@@ -620,11 +633,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" checked>
         
           
           <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
@@ -638,7 +651,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3_4">
             <span class="md-nav__icon md-icon"></span>
             baramFlow 유저 가이드
@@ -859,10 +872,19 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../nomenclature/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -871,6 +893,7 @@
   
 
       </a>
+      
     </li>
   
 
@@ -1029,120 +1052,32 @@
                   
 
 
-<h1 id="baram">BARAM 이란</h1>
-<p>BARAM-v24는 압축성 유동, 비압축성 유동, 다상유동, 열전달 해석, 화학종 혼합 계산을 위한 전산유체역학 프로그램 패키지이며, 공개 소스 CFD 도구 상자인 OpenFOAM 기반으로 개발되었다.</p>
-<p>BARAM-v24에서 사용하는 OpenFOAM은 NextFOAM-v24이다. NextFOAM-v24는 ESI의 v2406 기반으로 (주)넥스트폼에서 개발한 포크로, 안정성, 수렴성, 정확성 향상과 새로운 기능을 위한 다양한 라이브러리, 유틸리티, 솔버를 포함한다. BARAM-v24를 설치하면 NextFOAM-v24의 바이너리가 설치된다. 소스코드는 github에서 다운 받을 수 있다.<a href="https://github.com/nextfoam/nextfoam-cfd">https://github.com/nextfoam/baram</a> </p>
-<p>BARAM은 격자 생성 모듈인 baramMesh와 해석 모듈인 baramFlow로 구성된다.</p>
-<p>격자 생성 모듈 BaramMesh는 OpenFOAM의 유틸리티인 blockMesh와 snappyHexMesh를 사용하여 격자를 생성하는 모듈이다. 형상은 STL 파일을 가져올 수 있고 육면체, 구, 실린더 형상을 생성할 수 있다. 경계층 격자를 포함한 octree 방식의 3차원 격자를 생성할 수 있으며 region, cell zone, interface를 만들 수 있다.</p>
-<p>해석 모듈 BaramFlow는 전산유체역학 해석을 위한 모듈로 비압축성유동, 열전달, 압축성유동, 다상유동, 화학종 혼합을 해석할 수 있다.</p>
-<p>BARAM은 다양한 프로그램을 사용하여 개발되었으며 모두 공개소스 프로그램만 사용되었다. 그래픽 사용자 환경은 python, Qt, vtk를 이용하여 개발 되었으며, 공개소스 프로그램인 paraview를 이용하여 후처리 작업을 할 수 있다.</p>
-<p>(주)넥스트폼이 개발하여 GNU GPL 라이선스로 공개하였다.</p>
-<p>BARAM-v24에서 사용하는 솔버는 다음과 같다. </p>
+<h1 id="_1">용어 해설</h1>
 <ul>
-<li>buoyantSimpleNFoam : 정상상태 아음속, 열전달, 화학종 혼합 해석(넥스트폼 개발)</li>
-<li>buoyantPimpleNFoam : 비정상상태 아음속, 열전달, 화학종 혼합 해석(넥스트폼 개발)</li>
-<li>chtMultiRegionSimpleNFoam : 정상상태 multi-region 해석(넥스트폼 개발)</li>
-<li>chtMultiRegionPimpleNFoam : 비정상상태 multi-region 해석(넥스트폼 개발)</li>
-<li>interFoam : 2상 유동의 자유수면 해석</li>
-<li>interPhaseChangeFoam : 캐비테이션 해석</li>
-<li>multiphaseInterFoam : 3종 이상의 물질에 대한 VOF 다상유동 해석</li>
-<li>TSLAeroFoam : 밀도기반 정상상태 압축성 유동 해석(넥스트폼 개발)</li>
-<li><span style="color:gray">압력기반 비압축성/압축성 전체 속도 영역 솔버(곧 지원 예정)</span></li>
+<li>기준값 : reference value, 유체력계수 계산을 위한 기준 값</li>
+<li>다공성 모델 : porous Media, 다공성 매체를 통과하는 흐름을 해석하기 위해 속도, 압력손실을 계산하는 방법</li>
+<li>다중기준좌표계 : MRF, Multiple Reference Frame, 회전체 계산을 위해 회전 부분을 회전 좌표계에서 계산하는 방법</li>
+<li>미끄럼 격자 : sliding Mesh, 운동하는 부분과 고정된 부분을 별도 격자로 정의하고 각각이 독립적으로 움직이는 방법</li>
+<li>반복계산 : iteration</li>
+<li>복합영역 : multi-region, 여러 개의 유체 혹은 고체의 영역이 존재하는 것</li>
+<li>생성항 : source term</li>
+<li>셀존 : Ccll zone, 계산 영역 내부의 일부분을 특정 조건을 지정하기 위해 구분한 것</li>
+<li>셀존 조건 : 셀존에 적용되는 회전체, 다공성, 생성항 등의 조건</li>
+<li>수송방정식 : transport Equation, 스칼라의 보존 방정식</li>
+<li>영역 : region, 유동이 흐르는 독립된 영역 혹은 한가지 재질의 고체 영역</li>
+<li>인터페이스 : interface, 같은 위치에 두 개의 면이 존재하는 것</li>
+<li>일괄계산 : batch run, 다양한 해석 조건에 대한 계산을 순차적으로 한번에 계산하는 방법</li>
+<li>잔차 : residual</li>
+<li>전달 물성값 : transport properties, 점성계수와 열전도도</li>
+<li>점도 비율 : viscosity ratio, 난류 점성계수를 점성계수로 나눈값 </li>
+<li>첫번째 유체, 두번째 유체 : primary material, secondary materials, 다상유동을 해석할 때 사용되며 두번째 유체는 여러 개일 수 있다.</li>
 </ul>
-<h1 id="_1">주요 기능</h1>
-<ul>
-<li>난류</li>
-<li>Euler  </li>
-<li>Laminar  </li>
-<li>Standard $k-\epsilon$, RNG $k-\epsilon$, Realizable $k-\epsilon$ with standard &amp; two-layer wall function  </li>
-<li>SST $k-\omega$  </li>
-<li>Spalart-Allmara  </li>
-<li>
-<p>LES/DES</p>
-</li>
-<li>
-<p>열전달</p>
-</li>
-<li>Forced convection  </li>
-<li>Natural convection  </li>
-<li>conjugate heat transfer  </li>
-<li>
-<p><span style="color:gray">Radiation : P1, fvDOM(곧 지원 예정)</span></p>
-</li>
-<li>
-<p>Cell zone 모델</p>
-</li>
-<li>MRF  </li>
-<li>Sliding mesh  </li>
-<li>Porous media : Darcy-Forchheimer / power law  </li>
-<li>Fixed velocity  </li>
-<li>Scalar source  </li>
-<li>
-<p>Scalar fixed value</p>
-</li>
-<li>
-<p>Paremeter를 이용한 일괄 계산(batch run)</p>
-</li>
-<li>
-<p>Passive scalar 계산</p>
-</li>
-<li>
-<p>격자 생성</p>
-</li>
-<li>snappyHexMesh  </li>
-<li>
-<p><span style="color:gray">cfMesh(곧 지원 예정)</span></p>
-</li>
-<li>
-<p>격자 파일 변환 </p>
-</li>
-<li>Fluent msh/cas : 넥스트폼이 수정한 fluentToFoam 유틸리티 사용  </li>
-<li>Star-CCM+ ccm : ccmToFoam 유틸리티 사용  </li>
-<li>ideasUnv : ideasUnvToFoam 유틸리티 사용  </li>
-<li>gmsh : gmshToFoam 유틸리티 사용  </li>
-<li>
-<p><span style="color:gray">plot3D : plot3dToFoam(곧 지원 예정)</span></p>
-</li>
-<li>
-<p>STL 파일 처리 : 특성 각도에 따른 표면 분할(surfaceAutoPatch)</p>
-</li>
-<li>
-<p>격자 처리  </p>
-</li>
-<li>Mesh information : cell 정보, 도메인의 범위 표시  </li>
-<li>Mesh transform : scale, translate, rotate</li>
-<li>convert to axi-symmetric mesh  </li>
-<li>converr to 2d mesh  </li>
-<li><span style="color:gray">Refine wall layer(곧 지원 예정)</span>  </li>
-<li>
-<p><span style="color:gray">Create baffle / interior : from faceSet, faceZone(곧 지원 예정)</span></p>
-</li>
-<li>
-<p>후처리</p>
-</li>
-<li>monitoring - point value, surface value, volume value, force</li>
-<li>data extraction : point value, surface value, volume value, force</li>
-<li>ParaView</li>
-<li><span style="color:gray">경계면에서 스칼라 분포 및 벡터(곧 지원 예정)</span>  </li>
-<li><span style="color:gray">축단면에서 스칼라 분포 및 벡터(곧 지원 예정)</span>  </li>
-<li><span style="color:gray">iso-surface(곧 지원 예정)</span>  </li>
-<li><span style="color:gray">clip data(곧 지원 예정)</span>  </li>
-<li><span style="color:gray">streamline(곧 지원 예정)</span> </li>
-</ul>
-<h1 id="_2">폴더 구조</h1>
-<p>BARAM은 작업 프로젝트를 폴더 단위로 관리한다. </p>
-<p>프로젝트 폴더에는 case라는 폴더와 baram.cfg, baram.log, configuration, configuration.h5 등의 파일이 있다. </p>
-<p>case 폴더는 openfoam 계산 폴더이다. openfoam에서 사용하는 0, constant, system, postProcessing, [time] 등의 폴더가 있으며 baram.foam, stderr.log, stdout.log 파일이 있다. baram.foam은 후처리를 위한 paraview 실행을 위한 파일이며 stdout.log는 솔버를 포함한 각종 실행파일 실행시 생성되는 로그 파일이며, stderr.log는 실행시 나타난 에러 메세지이다.</p>
-<p>그래픽 인터페이스의 각종 설정은 HDF5 파일 형식으로 configuration.h5에 있다. HDF5는 Hierarchical Data Format version 5의 약어로, 계층적 데이터 형식으로 대량의 데이터를 저장하고 관리하기 위한 파일 형식 및 라이브러리이다.(https://www.hdfgroup.org/solutions/hdf5/)</p>
 
 
 
 
 
 
-
-  
-  
 
 
 

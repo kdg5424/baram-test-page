@@ -15,11 +15,28 @@ nav:
       - Mixing Pipe: en/baramFlow tutorial/2023-09-05-MixingPipe-post.md
       - Ahmed Body: en/baramFlow tutorial/2023-09-05-AhmedBody-post.md
   - 한국어:
-    - Installation: ko/installation.md
-    - Release Notes: ko/release_notes.md
-    - baramFlow Tutorial Guides:
+    - 설치: ko/baramFlow User Guide/install.md
+    - 릴리즈 노트: ko/release_notes.md
+    - baramFlow 튜토리얼:
       - Mixing Pipe: ko/baramFlow tutorial/2023-09-05-MixingPipe-post.md
       - Ahmed Body: ko/baramFlow tutorial/2023-09-05-AhmedBody-post.md
+    - baramFlow 유저 가이드:
+      - boundary: ko/baramFlow User Guide/boundary.md
+      - cellZone: ko/baramFlow User Guide/cellZone.md
+      - general: ko/baramFlow User Guide/general.md
+      - index: ko/baramFlow User Guide/index.md
+      - initial: ko/baramFlow User Guide/initial.md
+      - intro: ko/baramFlow User Guide/intro.md
+      - material: ko/baramFlow User Guide/material.md
+      - model: ko/baramFlow User Guide/model.md
+      - monitor: ko/baramFlow User Guide/monitor.md
+      - nextfoam: ko/baramFlow User Guide/nextfoam.md
+      - nomenclature: ko/baramFlow User Guide/nomenclature.md
+      - numerical: ko/baramFlow User Guide/numerical.md
+      - reference: ko/baramFlow User Guide/reference.md
+      - report: ko/baramFlow User Guide/report.md
+      - run: ko/baramFlow User Guide/run.md
+      - run condition: ko/baramFlow User Guide/runCondition.md
 
 extra_javascript:
   - https://polyfill.io/v3/polyfill.min.js?features=es6
