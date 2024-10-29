@@ -1,0 +1,3755 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../heatTransfer/">
+      
+      
+        <link rel="next" href="../multiphase/">
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.42">
+    
+    
+      
+        <title>회전체 해석 예제 - BARAM Page</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.0253249f.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/css/custom.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="BARAM Page" class="md-header__button md-logo" aria-label="BARAM Page" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            BARAM Page
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              회전체 해석 예제
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../en/installation/" class="md-tabs__link">
+          
+  
+  English
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../baramFlow%20User%20Guide/install/" class="md-tabs__link">
+          
+  
+  한국어
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="BARAM Page" class="md-nav__button md-logo" aria-label="BARAM Page" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    BARAM Page
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    English
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            English
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../en/installation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Installation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../en/release_notes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Release Notes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    baramFlow Tutorial Guides
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            baramFlow Tutorial Guides
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../en/baramFlow%20tutorial/2023-09-05-MixingPipe-post/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Mixing Pipe
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../en/baramFlow%20tutorial/2023-09-05-AhmedBody-post/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ahmed Body
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    한국어
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            한국어
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../baramFlow%20User%20Guide/install/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    설치
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../release_notes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    릴리즈 노트
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    baramFlow 튜토리얼
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            baramFlow 튜토리얼
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    index
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../simple_incompressible/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    간단한 비압축성 유동 예제
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../car_external/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    자동차 외부 유동 예제
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../transient/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    비정상 상태 유동 예제
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../heatTransfer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    열전달 예제
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    회전체 해석 예제
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    회전체 해석 예제
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#mrf" class="md-nav__link">
+    <span class="md-ellipsis">
+      팬(MRF)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="팬(MRF)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      개요
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      프로그램의 구동 및 격자
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#general" class="md-nav__link">
+    <span class="md-ellipsis">
+      기본조건(General)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#models" class="md-nav__link">
+    <span class="md-ellipsis">
+      모델(Models)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#materials" class="md-nav__link">
+    <span class="md-ellipsis">
+      물질(Materials)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cell-zone-conditions" class="md-nav__link">
+    <span class="md-ellipsis">
+      셀존 조건(Cell zone Conditions)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#boundary-conditions" class="md-nav__link">
+    <span class="md-ellipsis">
+      경계조건(Boundary Conditions)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#numerical-conditions" class="md-nav__link">
+    <span class="md-ellipsis">
+      수치해석 기법(Numerical Conditions)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#initialization" class="md-nav__link">
+    <span class="md-ellipsis">
+      초기화(Initialization)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      계산
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      후처리
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mixermrf" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mixer(MRF)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Mixer(MRF)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      개요
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      프로그램의 구동 및 격자
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#general_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      기본조건(General)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#models_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      모델(Models)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#materials_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      물질(Materials)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cell-zone-conditions_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      셀존 조건(Cell zone Conditions)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#boundary-conditions_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      경계조건(Boundary Conditions)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#numerical-conditions_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      수치해석 기법(Numerical Conditions)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#initialization_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      초기화(Initialization)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      계산
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sliding-mesh" class="md-nav__link">
+    <span class="md-ellipsis">
+      시로코팬(Sliding mesh)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="시로코팬(Sliding mesh)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      개요
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      프로그램의 구동 및 격자
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      격자
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      정상상태 계산
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="정상상태 계산">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#general_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      기본조건(General)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#models_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      모델(Models)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#materials_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      물질(Materials)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cell-zone-conditions_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      셀존 조건(Cell zone Conditions)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#boundary-conditions_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      경계조건(Boundary Conditions)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#numerical-conditions_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      수치해석 기법(Numerical Conditions)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#initialization_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      초기화(Initialization)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      계산
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      비정상상태 계산
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="비정상상태 계산">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#general_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      기본조건(General)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cell-zone-conditions_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      셀존 조건(Cell zone Conditions)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#boundary-conditions_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      경계조건(Boundary Conditions)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#numerical-conditions_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      수치해석 기법(Numerical Conditions)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      계산
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      후처리
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      프로펠러
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="프로펠러">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      개요
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      프로그램의 구동 및 격자
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#general_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      기본조건(General)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#models_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      모델(Models)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#materials_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      물질(Materials)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cell-zone-conditions_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      셀존 조건(Cell zone Conditions)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#boundary-conditions_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      경계조건(Boundary Conditions)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#numerical-conditions_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      수치해석 기법(Numerical Conditions)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#initialization_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      초기화(Initialization)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      계산
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      팬이 있는 실내 공간
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="팬이 있는 실내 공간">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      개요
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      프로그램의 구동 및 격자
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#general_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      기본조건(General)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#models_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      모델(Models)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#materials_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      물질(Materials)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cell-zone-conditions_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      셀존 조건(Cell zone Conditions)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#boundary-conditions_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      경계조건(Boundary Conditions)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#numerical-conditions_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      수치해석 기법(Numerical Conditions)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#initialization_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      초기화(Initialization)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      계산
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../multiphase/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    다상유동 해석 예제
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../porous/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    다공성 해석 예제
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ABL/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    대기경계층 해석 예제
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../nonNewtonian/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    비뉴턴유체 해석 예제
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../species/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    화학종 해석 예제
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../uds/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    사용자 정의 스칼라 해석 예제
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../subsonic/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    압축성 아음속 유동 해석 예제
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../densityBased/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    밀도 기반 압축성 유동 해석 예제
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../batchRun/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    일괄계산 유동 해석 예제
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    baramFlow 유저 가이드
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            baramFlow 유저 가이드
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../baramFlow%20User%20Guide/intro/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    intro
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../baramFlow%20User%20Guide/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    index
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../baramFlow%20User%20Guide/nomenclature/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    nomenclature
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../baramFlow%20User%20Guide/general/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    general
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../baramFlow%20User%20Guide/model/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    model
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../baramFlow%20User%20Guide/material/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    material
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../baramFlow%20User%20Guide/boundary/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    boundary
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../baramFlow%20User%20Guide/cellZone/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    cellZone
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../baramFlow%20User%20Guide/monitor/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    monitor
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../baramFlow%20User%20Guide/reference/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    reference
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../baramFlow%20User%20Guide/numerical/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    numerical
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../baramFlow%20User%20Guide/nextfoam/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    nextfoam
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../baramFlow%20User%20Guide/initial/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    initial
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../baramFlow%20User%20Guide/runCondition/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    run condition
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../baramFlow%20User%20Guide/run/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    run
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../baramFlow%20User%20Guide/report/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    report
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_5" id="__nav_3_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    baramMesh 튜토리얼
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_5">
+            <span class="md-nav__icon md-icon"></span>
+            baramMesh 튜토리얼
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../baramMesh%20tutorial/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    index
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../baramMesh%20tutorial/mixingPipe/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Mixing Pipe
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../baramMesh%20tutorial/Ahmed/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ahmed Body
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../baramMesh tutorial/Cantilever.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cantilever Beam
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../baramMesh tutorial/CHT.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CHT
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../baramMesh%20tutorial/weir/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Weir
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../baramMesh%20tutorial/drivAer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    DrivAer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../baramMesh%20tutorial/porous/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Porous Media
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../baramMesh%20tutorial/train/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    High Speed Train
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../baramMesh%20tutorial/fanInRoom/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Rotating Fan in Room
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../baramMesh%20tutorial/propeller/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Propeller
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../baramMesh%20tutorial/siroccofan/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sirocco Fan
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../baramMesh%20tutorial/cavity/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3D Cavity
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../baramMesh%20tutorial/gap/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Gap Refinement
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../baramMesh%20tutorial/mixer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Mixer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../baramMesh%20tutorial/fan/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Fan
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../baramMesh%20tutorial/nozzle/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Axi-symmetric Nozzle
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#mrf" class="md-nav__link">
+    <span class="md-ellipsis">
+      팬(MRF)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="팬(MRF)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      개요
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      프로그램의 구동 및 격자
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#general" class="md-nav__link">
+    <span class="md-ellipsis">
+      기본조건(General)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#models" class="md-nav__link">
+    <span class="md-ellipsis">
+      모델(Models)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#materials" class="md-nav__link">
+    <span class="md-ellipsis">
+      물질(Materials)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cell-zone-conditions" class="md-nav__link">
+    <span class="md-ellipsis">
+      셀존 조건(Cell zone Conditions)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#boundary-conditions" class="md-nav__link">
+    <span class="md-ellipsis">
+      경계조건(Boundary Conditions)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#numerical-conditions" class="md-nav__link">
+    <span class="md-ellipsis">
+      수치해석 기법(Numerical Conditions)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#initialization" class="md-nav__link">
+    <span class="md-ellipsis">
+      초기화(Initialization)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      계산
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      후처리
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mixermrf" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mixer(MRF)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Mixer(MRF)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      개요
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      프로그램의 구동 및 격자
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#general_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      기본조건(General)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#models_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      모델(Models)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#materials_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      물질(Materials)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cell-zone-conditions_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      셀존 조건(Cell zone Conditions)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#boundary-conditions_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      경계조건(Boundary Conditions)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#numerical-conditions_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      수치해석 기법(Numerical Conditions)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#initialization_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      초기화(Initialization)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      계산
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sliding-mesh" class="md-nav__link">
+    <span class="md-ellipsis">
+      시로코팬(Sliding mesh)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="시로코팬(Sliding mesh)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      개요
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      프로그램의 구동 및 격자
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      격자
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      정상상태 계산
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="정상상태 계산">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#general_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      기본조건(General)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#models_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      모델(Models)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#materials_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      물질(Materials)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cell-zone-conditions_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      셀존 조건(Cell zone Conditions)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#boundary-conditions_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      경계조건(Boundary Conditions)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#numerical-conditions_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      수치해석 기법(Numerical Conditions)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#initialization_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      초기화(Initialization)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      계산
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      비정상상태 계산
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="비정상상태 계산">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#general_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      기본조건(General)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cell-zone-conditions_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      셀존 조건(Cell zone Conditions)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#boundary-conditions_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      경계조건(Boundary Conditions)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#numerical-conditions_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      수치해석 기법(Numerical Conditions)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      계산
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      후처리
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      프로펠러
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="프로펠러">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      개요
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      프로그램의 구동 및 격자
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#general_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      기본조건(General)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#models_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      모델(Models)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#materials_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      물질(Materials)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cell-zone-conditions_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      셀존 조건(Cell zone Conditions)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#boundary-conditions_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      경계조건(Boundary Conditions)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#numerical-conditions_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      수치해석 기법(Numerical Conditions)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#initialization_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      초기화(Initialization)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      계산
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      팬이 있는 실내 공간
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="팬이 있는 실내 공간">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      개요
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      프로그램의 구동 및 격자
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#general_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      기본조건(General)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#models_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      모델(Models)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#materials_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      물질(Materials)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cell-zone-conditions_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      셀존 조건(Cell zone Conditions)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#boundary-conditions_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      경계조건(Boundary Conditions)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#numerical-conditions_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      수치해석 기법(Numerical Conditions)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#initialization_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      초기화(Initialization)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      계산
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="_1">회전체 유동</h1>
+<h2 id="mrf">팬(MRF)</h2>
+<p><a href="https://drive.google.com/file/d/1GL268zuyYtKNtp2sKrgOujRIUMROU_Ij/view?usp=sharing">격자 파일 다운로드</a></p>
+<p><a href="https://drive.google.com/file/d/1KkySXAnSB0DRb_2hwBreKQEd5xkKnKYG/view?usp=sharing">계산 파일 다운로드</a></p>
+<h3 id="_2">개요</h3>
+<p><a href="https://github.com/nextfoam/baram-pages/raw/main/screenshots/fan/intro.png"><img alt="" src="https://github.com/nextfoam/baram-pages/raw/main/screenshots/fan/intro.png" title="" /></a></p>
+<p>본 예제는 정상상태 비압축성 유동해석 예제이다. 단순한 형상의 팬 내부에서 입펠러가 회전할 때 다중기준좌표계(Multiple Reference Frame, MRF)를 사용하여 유동을 예측하는 문제이다.</p>
+<p>계산 조건은 다음과 같다. </p>
+<ul>
+<li>솔버 : buoyantSimpleNFoam </li>
+<li>난류 모델 : $Standard$ $k-\epsilon$ model</li>
+<li>밀도 : 1.225 $kg/m^3$</li>
+<li>점성 계수 : 1.79e-5 $kg/ms$</li>
+<li>임펠러 회전 수 : 1,000 RPM</li>
+<li>입구 유동 속도 : 10 $m/s$</li>
+</ul>
+<h3 id="_3">프로그램의 구동 및 격자</h3>
+<p>프로그램 실행 후 [새 작업(New Case)]를 선택한다. 시작 창에서 [솔버 유형(Solver Type)]은 [압력기반(Pressure-based)]를, [다상유동 모델(Multiphase Model)]은 [None]을 선택한다.</p>
+<p align='center'>
+    <img src="https://github.com/nextfoam/baram-pages/raw/main/screenshots/mixingPipe/launcher.png"><br>
+</p>
+
+<p>격자는 주어진 polyMesh 폴더를 활용한다. 상단 탭에서 [파일(File)]-[격자 불러오기(Load Mesh)]-[OpenFOAM]을 순서대로 클릭하고 polyMesh 폴더를 선택한다. </p>
+<h3 id="general">기본조건(General)</h3>
+<p>모두 디폴트 조건을 사용한다.</p>
+<h3 id="models">모델(Models)</h3>
+<p>모두 디폴트 조건을 사용한다.</p>
+<p align='center'>
+    <img src="https://github.com/nextfoam/baram-pages/raw/main/screenshots/slidingMesh/4.3.png"><br>
+</p>
+
+<h3 id="materials">물질(Materials)</h3>
+<p>본 예제에서 작동 유체는 공기이다. 유체의 물성치는 디폴트 조건을 사용한다.</p>
+<h3 id="cell-zone-conditions">셀존 조건(Cell zone Conditions)</h3>
+<p>셀존 조건에서는 [다중기준좌표계], [미끄럼 격자], [생성항] 등을 설정할 수 있다. 본 예제에서는 rotating이라는 셀존에 다중기준좌표계(MRF) 조건을 사용한다.</p>
+<p>[다중기준좌표계(Multiple Reference Frame, MRF)]를 선택하고 아래 값들을 입력한다.</p>
+<ul>
+<li>회전속도(Rotating Speed) : 1000 (RPM)</li>
+<li>회전축 중심(Rotation-Axis Origin) : (0 0 0)</li>
+<li>회전축 방향(Rotation-Axis Direction) : (0 0 1)</li>
+<li>셀존 안의 움직이지 않는 경계면(Static Boundary) : casing</li>
+</ul>
+<p align='center'>
+    <img src="https://github.com/nextfoam/baram-pages/raw/main/screenshots/fan/mrf.png"><br>
+</p>
+
+<h3 id="boundary-conditions">경계조건(Boundary Conditions)</h3>
+<p>아래와 같이 경계면 타입과 경계값을 설정한다.</p>
+<ul>
+<li>blade, casing<ul>
+<li>속도 조건(Velocity Condition) : No Slip</li>
+</ul>
+</li>
+</ul>
+<p align='center'>
+    <img src="https://github.com/nextfoam/baram-pages/raw/main/screenshots/slidingMesh/4.8.png"><br>
+</p>
+
+<ul>
+<li>inlet : Velocity Inlet<ul>
+<li>Velocity Specification Method : Magnitudde, Normal to Boundary</li>
+<li>Profile Type : Constant</li>
+<li>Velocity Magnitude : 10 (m/s)</li>
+<li>Turbulent Intensity : 1 (%)</li>
+<li>Turbulent Viscosity Ratio : 10</li>
+</ul>
+</li>
+</ul>
+<p align='center'>
+    <img src="https://github.com/nextfoam/baram-pages/raw/main/screenshots/fan/inletBC.png"><br>
+</p>
+
+<ul>
+<li>outlet : Pressure Outlet<ul>
+<li>Total Pressure : 0 (Pa)</li>
+</ul>
+</li>
+</ul>
+<p align='center'>
+    <img src="https://github.com/nextfoam/baram-pages/raw/main/screenshots/slidingMesh/4.10.png"><br>
+</p>
+
+<h3 id="numerical-conditions">수치해석 기법(Numerical Conditions)</h3>
+<p>본 예제에서는 아래와 같이 설정을 변경한다.</p>
+<ul>
+<li>
+<p>Pressure-Velocity Coupling Scheme : SIMPLE</p>
+</li>
+<li>
+<p>Discretization Scheme</p>
+<ul>
+<li>Pressure : Linear</li>
+<li>Momentum : Second Order Upwind</li>
+<li>Turbulence : Second Order Upwind</li>
+</ul>
+</li>
+<li>
+<p>Under-Relaxation Factors</p>
+<ul>
+<li>Pressure : 0.3</li>
+<li>Momentum : 0.5</li>
+<li>Turbulence : 0.7</li>
+</ul>
+</li>
+<li>
+<p>Convergence Criteria</p>
+<ul>
+<li>Pressure : 0.001</li>
+<li>Momentum : 0.001</li>
+<li>Turbulence : 0.001</li>
+</ul>
+</li>
+</ul>
+<h3 id="initialization">초기화(Initialization)</h3>
+<p>모두 디폴트 값을 사용한다.</p>
+<p>하단의 Initialize 버튼을 클릭한다. 그 후, File - Save 버튼을 클릭하여 case 파일을 저장한다. </p>
+<p align='center'>
+    <img src="https://github.com/nextfoam/baram-pages/raw/main/screenshots/slidingMesh/4.11.png"><br>
+</p>
+
+<h3 id="_4">계산</h3>
+<p>메뉴의 [병렬연산(Parallel)]-[환경설정(Environment)]를 클릭하고 원하는 코어수를 입력한다. </p>
+<p>[계산 조건(Run Conditions)]에서 다음과 같이 설정 후 계산을 진행한다.</p>
+<ul>
+<li>계산 회수(Number of Iterations) : 1000</li>
+<li>자동 저장 간격(Save Interval) : 100</li>
+</ul>
+<p align='center'>
+    <img src="https://github.com/nextfoam/baram-pages/raw/main/screenshots/fan/runCondition.png"><br>
+</p>
+
+<p>아래 그림은 계산이 종료된 상태의 Residuals 그래프이다.</p>
+<p>|<a href="https://github.com/nextfoam/baram-pages/raw/main/screenshots/fan/run.png" target="_blank"><img alt="residual" src="https://github.com/nextfoam/baram-pages/raw/main/screenshots/fan/run.png" title="residual" /></a>|</p>
+<h3 id="_5">후처리</h3>
+<p>Fan 내부의 압력 분포를 확인해본다. External tools의 paraivew 버튼을 클릭하여 paraview를 실행한다.</p>
+<p>Case Type을 Decomposed Case로 변경한다.</p>
+<p align='center'>
+    <img src="https://github.com/nextfoam/baram-pages/raw/main/screenshots/fan/pv1.png"><br>
+</p>
+
+<p>Slice 기능을 활용하여 용기 내부의 단면을 자른다.</p>
+<p>Z-normal 버튼을 클릭 후, Origin의 z 값에 0.01을 입력한다.</p>
+<p align='center'>
+    <img src="https://github.com/nextfoam/baram-pages/raw/main/screenshots/fan/pv2.png"><br>
+</p>
+
+<p>아래 그림과 같이 fan 내부 속도 분포가 나오게 된다.</p>
+<p align='center'>
+    <img src="https://github.com/nextfoam/baram-pages/raw/main/screenshots/fan/pv3.png"><br>
+</p>
+
+<!-------------------------------------------------------------------------------------------------------->
+<h2 id="mixermrf">Mixer(MRF)</h2>
+<p><a href="https://drive.google.com/file/d/1hDPj81oeEhsQD86Uu9fUZmnIaglgth7c/view?usp=sharing">격자 파일 다운로드</a></p>
+<p><a href="https://drive.google.com/file/d/1UBi_opGRIYnGxDFeFihTukVEDOI52h2m/view?usp=sharing">계산 파일 다운로드</a></p>
+<h3 id="_6">개요</h3>
+<p><a href="https://github.com/nextfoam/baram-pages/raw/main/screenshots/mixer/intro.png"><img alt="속도/압력 분포" src="https://github.com/nextfoam/baram-pages/raw/main/screenshots/mixer/intro.png" /></a></p>
+<p>본 예제는 다순한 형상의 믹서를 MRF를 이용하여 계산하는 예제이다. MRF 모델을 사용하면 정상상태 계산을 할 수 있으며, 임펠러 날개 하나를 기준으로 회전 주기조건을 사용할 수 있어 계산 비용을 크게 줄일 수 있다. </p>
+<p>계산 조건은 다음과 같다. </p>
+<ul>
+<li>solver : buoyantPimpleNFoam (넥스트폼이 개발한 비압축성 유동 해석 솔버)</li>
+<li>난류 모델 : $Standard$ $k-\epsilon$ model</li>
+<li>밀도 : 1000 $kg/m^3$</li>
+<li>점성 계수 : 0.001 $kg/ms$</li>
+<li>프로펠러 회전 수 : 100 RPM</li>
+</ul>
+<h3 id="_7">프로그램의 구동 및 격자</h3>
+<p>프로그램 실행 후 launcher에서 ‘New’를 선택한다. Launcher에서 ‘Solver Type’은 Pressure-based를, ‘Multiphase Model’은 None, ‘Species’는 Not Include를 선택한다.</p>
+<p align='center'>
+    <img src="https://github.com/nextfoam/baram-pages/raw/main/screenshots/mixingPipe/launcher.png"><br>
+</p>
+
+<p>격자는 주어진 polyMesh 폴더를 활용한다. 상단 탭에서 File - Load Mesh - OpenFOAM을 클릭하고 polyMesh 폴더를 선택한다. </p>
+<h3 id="general_1">기본조건(General)</h3>
+<p>모두 Default를 사용한다.</p>
+<h3 id="models_1">모델(Models)</h3>
+<p>모두 Default를 사용한다.</p>
+<h3 id="materials_1">물질(Materials)</h3>
+<p>Name을 water로 변경하고 Density는 1000, viscosity는 0.001을 입력한다.</p>
+<h3 id="cell-zone-conditions_1">셀존 조건(Cell zone Conditions)</h3>
+<p>'cellZone'에 Multiple Reference Frame, MRF를 선택하고 아래 값들을 입력한다.</p>
+<ul>
+<li>Multiple Reference Frame<ul>
+<li>Rotating Speed : 100(RPM)</li>
+<li>Rotation-Axis Origin : (0 0 0)</li>
+<li>Rotation-Axis Direction : (0 0 1)</li>
+<li>Static Boundary : periodic1, periodic2</li>
+</ul>
+</li>
+</ul>
+<p align='center'>
+    <img src="https://github.com/nextfoam/baram-pages/raw/main/screenshots/mixer/cellZone.png"><br>
+</p>
+
+<h3 id="boundary-conditions_1">경계조건(Boundary Conditions)</h3>
+<p>아래와 같이 경계면 타입과 경계값을 설정한다.</p>
+<ul>
+<li>periodic1, periodic2 : Interface - Rotational Periodic<ul>
+<li>periodic1 : Rotational Periodic으로 변경 후, Coupled Boundary는 periodic2 선택. Rotation-Axis Origin은 (0 0 0), Rotation-Axis Direction은 (0 0 1)을 입력</li>
+</ul>
+</li>
+</ul>
+<p align='center'>
+    <img src="https://github.com/nextfoam/baram-pages/raw/main/screenshots/mixer/interface.png"><br>
+</p>
+
+<ul>
+<li>
+<p>impeller, impeller_slave : Thermo-Coupled Wall</p>
+<ul>
+<li>impeller : Thermo-Coupled Wall로 변경 후, Coupled Boundary는 impeller_slave를 선택</li>
+</ul>
+</li>
+<li>
+<p>wall, hub, hub_rot : Wall</p>
+<ul>
+<li>속도 조건(속도 조건(Velocity Condition)) : noSlip</li>
+</ul>
+</li>
+<li>
+<p>top : symmetry</p>
+</li>
+</ul>
+<h3 id="numerical-conditions_1">수치해석 기법(Numerical Conditions)</h3>
+<p>모두 Default를 사용한다.</p>
+<h3 id="initialization_1">초기화(Initialization)</h3>
+<p>모두 Default를 사용한다.</p>
+<h3 id="_8">계산</h3>
+<p>Run Conditions에서 Number of Iteration을 3000으로 설정하고 계산을 진행한다.</p>
+<p align='center'>
+    <img src="https://github.com/nextfoam/baram-pages/raw/main/screenshots/mixer/residual.png"><br>
+</p>
+
+<!-------------------------------------------------------------------------------------------------------->
+<h2 id="sliding-mesh">시로코팬(Sliding mesh)</h2>
+<p><a href="https://drive.google.com/file/d/1479KBQebn3GnVG_X5KlY9JBejJn4dX3Q/view?usp=sharing">격자 파일 다운로드</a></p>
+<p><a href="https://drive.google.com/file/d/1n7kY5ZSO4I9PsH1TVDLI0nTRLrl8lRhh/view?usp=sharing">계산 파일 다운로드</a></p>
+<h3 id="_9">개요</h3>
+<p><a href="https://github.com/nextfoam/baram-pages/raw/main/screenshots/slidingMesh/intro.png"><img alt="" src="https://github.com/nextfoam/baram-pages/raw/main/screenshots/slidingMesh/intro.png" title="" /></a></p>
+<p>본 예제는 비정상상태 비압축성 유동해석 예제이다. 시로코팬 내부에서 입펠러가 회전할 때 내부의 유동을 예측하는 문제이다.</p>
+<p>다중기준좌표계(MRF) 방법을 사용해서 정상상태 해석을 하고, 이 결과를 초기조건으로 미끄럼 격자(sliding mesh) 방법으로 비정상상태 계산을 한다.</p>
+<p>계산 조건은 다음과 같다. </p>
+<ul>
+<li>솔버 : buoyantPimpleNFoam</li>
+<li>난류 모델 : $Standard$ $k-\epsilon$ model</li>
+<li>밀도 : 1.225 $kg/m^3$</li>
+<li>점성 계수 : 1.79e-5 $kg/ms$</li>
+<li>임펠러 회전 수 : 2,000 RPM</li>
+</ul>
+<h3 id="_10">프로그램의 구동 및 격자</h3>
+<p>프로그램 실행 후 [새 작업(New Case)]를 선택한다. 시작 창에서 [솔버 유형(Solver Type)]은 [압력기반(Pressure-based)]를, [다상유동 모델(Multiphase Model)]은 [None]을 선택한다.</p>
+<p align='center'>
+    <img src="https://github.com/nextfoam/baram-pages/raw/main/screenshots/mixingPipe/launcher.png"><br>
+</p>
+
+<h3 id="_11">격자</h3>
+<p>격자는 fluent 격자를 변환하여 사용한다. </p>
+<p>메뉴에서 [File]-[Load Mesh]-[Fluent(ASCII)]를 선택하면 파일 선택창이 열린다. 다운로드한 siroccofan.msh 파일을 선택하면 아래와 같은 창이 열린다.</p>
+<p align='center'>
+    <img src="https://github.com/nextfoam/baram-pages/raw/main/screenshots/mixingPipe/fluentToFoam.png"><br>
+</p>
+
+<p>이 격자는 fluid와 rotating이라는 두 개의 셀존을 갖고 있다. 이 두개의 셀존과 region1, region2라는 두 개의 영역(region)이 표시되어 있다. region2 오른쪽의 (+) 아이콘을 누르면 영역이 추가된다. 다중영역 격자로 변환하기 위한 옵션이다. 이 문제는 다중영역 문제가 아니기 때문에 두 셀존 모두 region1으로 두면 된다. region2 아래의 휴지통 아이콘을 눌러 region2를 삭제해도 된다. </p>
+<h3 id="_12">정상상태 계산</h3>
+<h4 id="general_2">기본조건(General)</h4>
+<p>[시간(Time)]은 [정상상태(Steady)], [중력(Gravity)]는 (0 0 0), [작동 조건(Operating Conditions)]는 101325를 사용한다. </p>
+<p align='center'>
+    <img src="https://github.com/nextfoam/baram-pages/raw/main/screenshots/slidingMesh/general-steady.png"><br>
+</p>
+
+<h4 id="models_2">모델(Models)</h4>
+<p>난류 모델은 $Standard$ $k-\epsilon$ 모델을 사용한다.</p>
+<p align='center'>
+    <img src="https://github.com/nextfoam/baram-pages/raw/main/screenshots/slidingMesh/4.3.png"><br>
+</p>
+
+<h4 id="materials_2">물질(Materials)</h4>
+<p>본 예제에서 작동 유체는 공기이다. 유체의 물성치는 Default 조건을 사용한다.</p>
+<h4 id="cell-zone-conditions_2">셀존 조건(Cell zone Conditions)</h4>
+<p>셀존 조건에서 rotating을 더블 클릭하면 새로운 창이 열린다. [다중기준좌표계(MUltiple Reference Frame, MRF)]를 선택하고 아래 값들을 입력한다.</p>
+<ul>
+<li>회전속도(Rotating Speed) : 2,000 (RPM)</li>
+<li>회전축 중심(Rotation-Axis Origin) : (0, 0, 0)</li>
+<li>회전축 방향(Rotation-Axis Direction) : (0, 0, 1)</li>
+<li>셀존 안의 움직이지 않는 경계면(Static Boundary) : interface-rotating, interface-stat<ul>
+<li>MRF를 사용할 셀존에 있는 경계면들 중 회전하지 않는 면들을 선택해 준다. 두 개의 인터페이스 면들 중 하나는 해당 셀존에 있고 나머지는 바깥에 있다. 보통은 어느 것이 해당되는지 알기 어렵기 때문에 두 개를 모두 선택하면 된다. 해당 셀존 밖에 있는 경계면이 포함되어도 문제되지 않는다.</li>
+</ul>
+</li>
+</ul>
+<p align='center'>
+    <img src="https://github.com/nextfoam/baram-pages/raw/main/screenshots/slidingMesh/mrf.png"><br>
+</p>
+
+<h4 id="boundary-conditions_2">경계조건(Boundary Conditions)</h4>
+<p>아래와 같이 경계면 타입과 경계값을 설정한다.</p>
+<ul>
+<li>interface-stat, interface-rotating : 내부 인터페이스(Internal Interface)<ul>
+<li>interface-stat : 내부 인터페이스(Internal Interface)로 변경 후, 연결된 경계면(Coupled Boundary)는 interface-rotating 선택</li>
+</ul>
+</li>
+</ul>
+<p align='center'>
+    <img src="https://github.com/nextfoam/baram-pages/raw/main/screenshots/slidingMesh/4.5.png"><br>
+</p>
+
+<ul>
+<li>axis : Wall<ul>
+<li>속도 조건(Velocity Condition) : 회전속도(Rotational Moving Wall)</li>
+<li>회전속도(Speed) : 2000 (RPM)</li>
+<li>회전축 중심(Rotation-Axis Origin) : 0 0 0</li>
+<li>회전축 방향(Rotation-Axis Direction) : 0 0 1</li>
+</ul>
+</li>
+</ul>
+<p align='center'>
+    <img src="https://github.com/nextfoam/baram-pages/raw/main/screenshots/slidingMesh/4.6.png"><br>
+</p>
+
+<ul>
+<li>axis-r, blades, externalwalls, walls : 벽면(Wall)<ul>
+<li>속도 조건(Velocity Condition) : 정지(No Slip)</li>
+</ul>
+</li>
+</ul>
+<p align='center'>
+    <img src="https://github.com/nextfoam/baram-pages/raw/main/screenshots/slidingMesh/4.8.png"><br>
+</p>
+
+<ul>
+<li>inlet : 입구 속도(Velocity Inlet)<ul>
+<li>속도 크기(Velocity Magnitude) : 1 (m/s)</li>
+<li>난류 강도(Turbulent Intensity) : 1 (%)</li>
+<li>난류 점도 비율(Turbulent Viscosity Ratio) : 10</li>
+</ul>
+</li>
+</ul>
+<p align='center'>
+    <img src="https://github.com/nextfoam/baram-pages/raw/main/screenshots/slidingMesh/4.9.png"><br>
+</p>
+
+<ul>
+<li>outlet : 출구 압력(Pressure Outlet)<ul>
+<li>압력(Pressure) : 0 (Pa)</li>
+</ul>
+</li>
+</ul>
+<p align='center'>
+    <img src="https://github.com/nextfoam/baram-pages/raw/main/screenshots/slidingMesh/4.10.png"><br>
+</p>
+
+<h4 id="numerical-conditions_2">수치해석 기법(Numerical Conditions)</h4>
+<p>디폴트 조건을 사용한다.</p>
+<h4 id="initialization_2">초기화(Initialization)</h4>
+<p>모두 디폴트 값을 사용한다.</p>
+<p>값을 입력하고 하단의 [초기화(Initialize)] 버튼을 클릭한다. 그 후, 메뉴의 [파일(File)]-[저장(Save)] 버튼을 클릭하여 저장한다.</p>
+<p align='center'>
+    <img src="https://github.com/nextfoam/baram-pages/raw/main/screenshots/slidingMesh/initial.png"><br>
+</p>
+
+<h4 id="_13">계산</h4>
+<p>메뉴의 [병렬연산(Parallel)]-[환경설정(Environment)]를 클릭하고 원하는 코어수를 입력한다. </p>
+<p>[계산 조건(Run Conditions)]은 다음과 같이 설정하고 [계산시작(Start Calculation)] 버튼을 누르면 계산이 시작된다.</p>
+<ul>
+<li>[계산회수(Number of Iterations)] : 1000</li>
+<li>[자동 저장 간격(Save Interval)] : 100</li>
+</ul>
+<p align='center'>
+    <img src="https://github.com/nextfoam/baram-pages/raw/main/screenshots/slidingMesh/run.png"><br>
+</p>
+
+<p>유동이 비정상상태이기 때문에 잔차(residual)이 수렴하지는 않지만, 비정상상태 계산을 위한 초기조건으로는 사용하기에 문제는 없다.</p>
+<h3 id="_14">비정상상태 계산</h3>
+<h4 id="general_3">기본조건(General)</h4>
+<p>[시간(Time)]을 [비정상상태(Transient)]로 바꾼다. 다음과 같은 창이 나타난다. 정상상태 계산 결과를 비정상상태 계산의 초기조건으로 사용할 것인지를 묻는다. [Yes]를 선택하면 마지막으로 저장된 데이터가 초기조건으로 설정되고, 시간 0부터 계산이 시작된다.</p>
+<p align='center'>
+    <img src="https://github.com/nextfoam/baram-pages/raw/main/screenshots/slidingMesh/toTransient.png"><br>
+</p>
+
+<h4 id="cell-zone-conditions_3">셀존 조건(Cell zone Conditions)</h4>
+<p>'rotating' 셀존의 조건을 [미끄럼 격자(Sliding Mesh)]로 바꾼다. [셀존 안의 움직이지 않는 경계면(Static Boundary)] 설정 부분은 사라진다.</p>
+<h4 id="boundary-conditions_3">경계조건(Boundary Conditions)</h4>
+<p>움직이는 벽면에 대한 경계조건을 다음과 같이 바꾸어 준다.</p>
+<ul>
+<li>axis-r, blades : 벽면(Wall)<ul>
+<li>속도 조건(Velocity Condition) : 움직이는 벽(Moving Wall)</li>
+</ul>
+</li>
+</ul>
+<p align='center'>
+    <img src="https://github.com/nextfoam/baram-pages/raw/main/screenshots/slidingMesh/4.7.png"><br>
+</p>
+
+<h4 id="numerical-conditions_3">수치해석 기법(Numerical Conditions)</h4>
+<p>디폴트 조건을 사용한다.</p>
+<h4 id="_15">계산</h4>
+<p>[계산 조건(Run Conditions)]은 다음과 같이 설정하고 [계산시작(Start Calculation)] 버튼을 누르면 계산이 시작된다.</p>
+<ul>
+<li>시간 전진 기법(Time Stepping Method) : 일정(Fixed)</li>
+<li>시간 전진 간격(Time Step Size) : 0.0001</li>
+<li>종료 시간(End Time) : 0.3</li>
+</ul>
+<p align='center'>
+    <img src="https://github.com/nextfoam/baram-pages/raw/main/screenshots/slidingMesh/4.12.png"><br>
+</p>
+
+<p>계산이 시작되면 아래와 같이 잔차(residual)과 유체력 계수의 그래프가 그려진다.</p>
+<p align='center'>
+    <img src="https://github.com/nextfoam/baram-pages/raw/main/screenshots/slidingMesh/4.13.png"><br>
+</p>
+
+<h3 id="_16">후처리</h3>
+<p>팬 내부의 압력 분포를 확인해본다.  메뉴에서 [외부 프로그램(External tools)]-[ParaView] 버튼을 클릭해서 ParaView를 실행한다. </p>
+<p>병렬연산이면 [Case Type]을 [Decomposed Case]로 변경한다.</p>
+<p align='center'>
+    <img src="https://github.com/nextfoam/baram-pages/raw/main/screenshots/slidingMesh/4.14.png"><br>
+</p>
+
+<p>[Slice] 기능을 활용하여 용기 내부의 단면을 자른다. [Z-normal] 버튼을 클릭 후, [Origin]을 다음과 같이 변경한다.</p>
+<ul>
+<li>Origin : (0.06 -0.017 0.05)</li>
+<li>Normal : (0 0 1)</li>
+</ul>
+<p align='center'>
+    <img src="https://github.com/nextfoam/baram-pages/raw/main/screenshots/slidingMesh/4.15.png"><br>
+</p>
+
+<p>아래 그림과 같이 팬 내부 속도 분포가 그려진다.</p>
+<p align='center'>
+    <img src="https://github.com/nextfoam/baram-pages/raw/main/screenshots/slidingMesh/4.16.png"><br>
+</p>
+
+<!-------------------------------------------------------------------------------------------------------->
+<h2 id="_17">프로펠러</h2>
+<p><a href="https://drive.google.com/file/d/1DD4Ba9iBaVpgORhmzyh1ppTtHYXIYX1t/view?usp=sharing">계산 파일 다운로드</a></p>
+<h3 id="_18">개요</h3>
+<p><a href="https://github.com/nextfoam/baram-pages/raw/main/screenshots/propeller/intro.png"><img alt="속도분포" src="https://github.com/nextfoam/baram-pages/raw/main/screenshots/propeller/intro.png" /></a></p>
+<p>본 예제는 OpenFOAM의 pimpleFoam tutorial에 있는 propeller 문제를 BaramFlow로 계산하는 예제이다. [미끄럼 격자(Sliding mesh)] 기법을 사용하여 프로펠러의 회전에 따른 유동을 예측하는 문제이다.</p>
+<p>계산 조건은 다음과 같다. </p>
+<ul>
+<li>솔버 : buoyantPimpleNFoam </li>
+<li>난류 모델 : $Realizable$ $k-\epsilon$ model</li>
+<li>밀도 : 1000 $kg/m^3$</li>
+<li>점성 계수 : 0.001 $kg/ms$</li>
+<li>프로펠러 회전 수 : 1432 $RPM$</li>
+<li>입구 속도 : 5 $m/s$</li>
+</ul>
+<h3 id="_19">프로그램의 구동 및 격자</h3>
+<p>프로그램 실행 후 [새 작업(New Case)]를 선택한다. 시작 창에서 [솔버 유형(Solver Type)]은 [압력기반(Pressure-based)]를, [다상유동 모델(Multiphase Model)]은 [None]을 선택한다.</p>
+<p align='center'>
+    <img src="https://github.com/nextfoam/baram-pages/raw/main/screenshots/mixingPipe/launcher.png"><br>
+</p>
+
+<p>격자는 주어진 polyMesh 폴더를 활용한다. 상단 탭에서 [파일(File)]-[격자 불러오기(Load Mesh)]-[OpenFOAM]을 순서대로 클릭하고 polyMesh 폴더를 선택한다. </p>
+<h3 id="general_4">기본조건(General)</h3>
+<p>[시간(Time)]을 [비정상상태(Transient)]로 변경한다. 나머지는 디폴트를 사용한다.</p>
+<p align='center'>
+    <img src="https://github.com/nextfoam/baram-pages/raw/main/screenshots/slidingMesh/4.2.png"><br>
+</p>
+
+<h3 id="models_3">모델(Models)</h3>
+<p>난류 모델은 $Realizable$ $k-\epsilon$ 모델을 사용하고 [벽함수 옵션(Near-Wall Treatment)]는 [two layer 모델(Enhanced Wall Treatment)]를 선택한다. 나머지는 디폴트 조건을 사용한다.</p>
+<p align='center'>
+    <img src="https://github.com/nextfoam/baram-pages/raw/main/screenshots/propeller/tur.png"><br>
+</p>
+
+<h3 id="materials_3">물질(Materials)</h3>
+<p>이름을 water로 변경하고 밀도(Density)는 1000, 점성계수(viscosity)는 0.001을 입력한다.</p>
+<h3 id="cell-zone-conditions_4">셀존 조건(Cell zone Conditions)</h3>
+<p>셀존 조건에서는 [다중기준좌표계], [미끄럼 격자], [생성항] 등을 설정할 수 있다. </p>
+<p>본 예제에서는 cellZone에 [미끄럼 격자(Sliding Mesh)] 조건을 설정한다.</p>
+<ul>
+<li>회전속도(Rotating Speed) : 1432 (RPM)</li>
+<li>회전축 중심(Rotation-Axis Origin) : (0 0 0)</li>
+<li>회전축 방향(Rotation-Axis Direction) : (-1 0 0)</li>
+</ul>
+<p align='center'>
+    <img src="https://github.com/nextfoam/baram-pages/raw/main/screenshots/propeller/cellZone.png"><br>
+</p>
+
+<h3 id="boundary-conditions_4">경계조건(Boundary Conditions)</h3>
+<p>아래와 같이 경계면 타입과 경계값을 설정한다.</p>
+<ul>
+<li>cellZone_surface, cellZone_surface_slave : 내부 인터페이스(Internal Interface)<ul>
+<li>cellZone_surface : 내부 인터페이스로 변경 후, 연결된 벽면(Coupled Boundary)는 cellZone_surface_slave 선택</li>
+</ul>
+</li>
+</ul>
+<p align='center'>
+    <img src="https://github.com/nextfoam/baram-pages/raw/main/screenshots/propeller/interface.png"><br>
+</p>
+
+<ul>
+<li>
+<p>propeller, propellerStem : 벽면(Wall)</p>
+<ul>
+<li>속도 조건(Velocity Condition) : 움직이는 벽(Moving Wall)</li>
+</ul>
+</li>
+<li>
+<p>far_surface : 벽면(Wall)</p>
+<ul>
+<li>속도 조건(Velocity Condition) : 미끄럼 벽(Slip)</li>
+</ul>
+</li>
+<li>
+<p>inlet : 입구 속도(Velocity Inlet)</p>
+<ul>
+<li>속도 크기(Velocity Magnitude) : 5 (m/s)</li>
+<li>난류 강도(Turbulent Intensity) : 1 (%)</li>
+<li>난류 점도 비율(Turbulent Viscosity Ratio) : 10</li>
+</ul>
+</li>
+</ul>
+<p align='center'>
+    <img src="https://github.com/nextfoam/baram-pages/raw/main/screenshots/propeller/inlet.png"><br>
+</p>
+
+<ul>
+<li>outlet : 출구 압력(Pressure Outlet)<ul>
+<li>압력(Pressure) : 0 (Pa)</li>
+</ul>
+</li>
+</ul>
+<p align='center'>
+    <img src="https://github.com/nextfoam/baram-pages/raw/main/screenshots/propeller/outlet.png"><br>
+</p>
+
+<h3 id="numerical-conditions_4">수치해석 기법(Numerical Conditions)</h3>
+<p>[시간당 반복계산 회수(Max iterations per Time Step)]을 20, [압력보정 회수(Number of Correctors)]를 2로 설정한다. 나머지는 디폴트 조건을 사용한다.</p>
+<h3 id="initialization_3">초기화(Initialization)</h3>
+<p>X-속도는 5, [속도 크기(Scale of Velocity)]는 5, 나머지는 디폴트 값을 사용한다.</p>
+<p>하단의 [초기화(Initialize)] 버튼을 클릭한다. 그 후, 메뉴의 [파일(File)]-[저장(Save)] 버튼을 클릭하여 저장한다.</p>
+<h3 id="_20">계산</h3>
+<p>메뉴의 [병렬연산(Parallel)]-[환경설정(Environment)]를 클릭하고 원하는 코어수를 입력한다. </p>
+<p>[계산 조건(Run Conditions)]은 다음과 같이 설정하고 [계산시작(Start Calculation)] 버튼을 누르면 계산이 시작된다.</p>
+<ul>
+<li>시간 전진 기법(Time Stepping Method) : 일정(Fixed)</li>
+<li>시간 전진 간격(Time Step Size) : 1e-5</li>
+<li>종료 시간(End Time) : 0.1</li>
+<li>자동 저장 간격(Save Interval) : 0.001</li>
+</ul>
+<!-------------------------------------------------------------------------------------------------------->
+<h2 id="_21">팬이 있는 실내 공간</h2>
+<h3 id="_22">개요</h3>
+<p style="text-align: center">
+    <img src="https://github.com/nextfoam/baram-pages/raw/main/screenshots/room/room-intro.png" ><br>
+</p>
+
+<p>본 예제는 미끄럼 격자(sliding mesh)를 이용한 계산 예제이다.</p>
+<p>실내에 100 RPM으로 회전하는 팬이 창을 통해 유동이 흐르는 간단한 문제이다.</p>
+<p>계산 조건은 다음과 같다.</p>
+<ul>
+<li>솔버 : buoyantSimpleNFoam</li>
+<li>난류 모델 : $Standard$ $k-\epsilon$</li>
+<li>팬 회전 속도 : 100 RPM</li>
+</ul>
+<h3 id="_23">프로그램의 구동 및 격자</h3>
+<p>BaramFlow 실행 후 [기존 계산 열기(Open)]을 선택하고 <a href="https://baramcfd.org/mesh/2024/03/21/fanInRoomMesh-post/">격자 생성 튜토리얼</a>에서 만든 폴더를 선택한다(혹은 [새 계산(New Case)]를 선택하고 메뉴의 [파일(File)]-[격자불러오기(Load Mesh)]-[OpenFOAM]에서 [caseName]/case/constant 폴더를 선택한다).</p>
+<p>시작 창에서 [솔버 유형(Solver Type)]은 [압력기반(Pressure-based)]를, [다상유동 모델(Multiphase Model)]은 [None]을 선택한다.</p>
+<h3 id="general_5">기본조건(General)</h3>
+<p>비정상상태 등온 단상유동 계산이다. [시간(Time)]은 [비정상상태(Transient)]로 설정한다.</p>
+<h3 id="models_4">모델(Models)</h3>
+<p>난류 모델은 Standard $k-\epsilon$ 모델을 사용하고 나머지는 디폴트를 사용한다.</p>
+<p style="text-align: center">
+    <img src="https://github.com/nextfoam/baram-pages/raw/main/screenshots/mixer/3.3.png"><br> 난류 모델 설정
+</p>
+
+<h3 id="materials_4">물질(Materials)</h3>
+<p>본 예제의 작동유체는 공기이다. 디폴트 값을 사용한다.</p>
+<h3 id="cell-zone-conditions_5">셀존 조건(Cell zone Conditions)</h3>
+<p>AMI라는 셀존을 더블 클릭하면 설정 창이 열린다. [셀존 종류(Zone Type)]을 [미끄럼 격자(Sliding Mesh)]로 주고 다음과 같이 설정한다.</p>
+<ul>
+<li>회전속도(Rotating Speed) : 100 RPM</li>
+<li>회전축 중심(Rotation Axis Origin) : (-3 2 2.6)</li>
+<li>회전축 방향(Rotation Axis Direction) : (0 0 1)</li>
+</ul>
+<p style="text-align: center">
+    <img src="https://github.com/nextfoam/baram-pages/raw/main/screenshots/room/room-cellZone.png" >
+    <br> 셀존 설정
+</p>
+
+<h3 id="boundary-conditions_5">경계조건(Boundary Conditions)</h3>
+<p>아래와 같이 경계면 타입과 경계값을 설정한다.</p>
+<ul>
+<li>desk_surface_0, door, room : 벽면(Wall)<ul>
+<li>속도조건 : 정지(No Slip)</li>
+</ul>
+</li>
+</ul>
+<p style="text-align: center">
+    <img src="https://github.com/nextfoam/baram-pages/raw/main/screenshots/room/room-noSlip.png" >
+</p>
+
+<ul>
+<li>fan_surface_0 : 벽면(Wall)<ul>
+<li>속도조건 : 움직이는 벽(Moving Wall)</li>
+</ul>
+</li>
+</ul>
+<p style="text-align: center">
+    <img src="https://github.com/nextfoam/baram-pages/raw/main/screenshots/room/room-movingWall.png" >
+</p>
+
+<ul>
+<li>outlet : 출구 압력(Pressure Outlet)<ul>
+<li>압력(Pressure) = 0</li>
+</ul>
+</li>
+</ul>
+<p style="text-align: center">
+    <img src="https://github.com/nextfoam/baram-pages/raw/main/screenshots/room/room-outlet.png" >
+</p>
+
+<ul>
+<li>AMI_surface_0, AMI_surface_0_slave : 내부 인터페이스(Internal Interface)</li>
+</ul>
+<p style="text-align: center">
+    <img src="https://github.com/nextfoam/baram-pages/raw/main/screenshots/room/room-interface.png" >
+</p>
+
+<p>전체 설정을 완료하면 아래 그림과 같이 된다.</p>
+<p style="text-align: center">
+    <img src="https://github.com/nextfoam/baram-pages/raw/main/screenshots/room/room-bc.png" >
+    <br> 경계조건 설정
+</p>
+
+<h3 id="numerical-conditions_5">수치해석 기법(Numerical Conditions)</h3>
+<p>본 예제에서는 아래와 같이 설정을 변경한다. </p>
+<ul>
+<li>
+<p>압력-속도 연성기법(Pressure-Velocity coupling) : SIMPLE</p>
+</li>
+<li>
+<p>운동량방정식 계산(Use Momentum Predictor) : On</p>
+</li>
+<li>
+<p>이산화 기법(Discretization)</p>
+<ul>
+<li>시간 : 1차 음해법(First Order Implicit)</li>
+<li>압력 : Linear</li>
+<li>운동량 : 2차 상류기법(Second Order Upwind)</li>
+<li>난류 : 1차 상류기법(First Order Upwind)</li>
+</ul>
+</li>
+<li>
+<p>완화계수(Relaxation factors) : 모두 1로 설정</p>
+</li>
+<li>
+<p>시간당 반복계산 회수(Max iterations per Time Step) : 3</p>
+</li>
+<li>
+<p>압력보정 회수(Number of Correctors) : 1</p>
+</li>
+</ul>
+<p style="text-align: center">
+    <img src="https://github.com/nextfoam/baram-pages/raw/main/screenshots/room/room-nume.png" >
+    <br> 수치해석 조건 설정
+</p>
+
+<h3 id="initialization_4">초기화(Initialization)</h3>
+<p>초기값은 디폴트 값을 그대로 사용한다.</p>
+<p>하단의 [초기화(Initialize)] 버튼을 클릭한다. 그 후, 메뉴의 [파일(File)]-[저장(Save)] 버튼을 클릭하여 저장한다.</p>
+<h3 id="_24">계산</h3>
+<p>[계산 조건(Run Conditions)]은 다음과 같이 설정하고 [계산시작(Start Calculation)] 버튼을 누르면 계산이 시작된다.</p>
+<ul>
+<li>시간 전진 기법(Time Stepping Method) : 적응시간기법(Adaptive)</li>
+<li>Courant Number : 1</li>
+<li>종료 시간(EndTime) : 1</li>
+<li>자동 저장 간격(Save Interval) : 0.02</li>
+</ul>
+<p>계산이 시작되면 아래와 같이 잔차(residual) 그래프가 그려진다.</p>
+<p style="text-align: center">
+    <img src="https://github.com/nextfoam/baram-pages/raw/main/screenshots/room/room-residual.png">
+    <br> 
+</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "i18n"], "search": "../../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/MathJax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+    
+  </body>
+</html>
