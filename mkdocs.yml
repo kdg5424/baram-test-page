@@ -21,22 +21,40 @@ nav:
       - Mixing Pipe: ko/baramFlow tutorial/2023-09-05-MixingPipe-post.md
       - Ahmed Body: ko/baramFlow tutorial/2023-09-05-AhmedBody-post.md
     - baramFlow 유저 가이드:
+      - intro: ko/baramFlow User Guide/intro.md
+      - index: ko/baramFlow User Guide/index.md      
+      - nomenclature: ko/baramFlow User Guide/nomenclature.md
+      - general: ko/baramFlow User Guide/general.md
+      - model: ko/baramFlow User Guide/model.md
+      - material: ko/baramFlow User Guide/material.md      
       - boundary: ko/baramFlow User Guide/boundary.md
       - cellZone: ko/baramFlow User Guide/cellZone.md
-      - general: ko/baramFlow User Guide/general.md
-      - index: ko/baramFlow User Guide/index.md
-      - initial: ko/baramFlow User Guide/initial.md
-      - intro: ko/baramFlow User Guide/intro.md
-      - material: ko/baramFlow User Guide/material.md
-      - model: ko/baramFlow User Guide/model.md
       - monitor: ko/baramFlow User Guide/monitor.md
-      - nextfoam: ko/baramFlow User Guide/nextfoam.md
-      - nomenclature: ko/baramFlow User Guide/nomenclature.md
-      - numerical: ko/baramFlow User Guide/numerical.md
       - reference: ko/baramFlow User Guide/reference.md
-      - report: ko/baramFlow User Guide/report.md
-      - run: ko/baramFlow User Guide/run.md
+      - numerical: ko/baramFlow User Guide/numerical.md
+      - nextfoam: ko/baramFlow User Guide/nextfoam.md
+      - initial: ko/baramFlow User Guide/initial.md
       - run condition: ko/baramFlow User Guide/runCondition.md
+      - run: ko/baramFlow User Guide/run.md
+      - report: ko/baramFlow User Guide/report.md
+    - baramMesh 튜토리얼:
+      - index: ko/baramMesh tutorial/index.md
+      - Mixing Pipe : ko/baramMesh tutorial/mixingPipe.md
+      - Ahmed Body : ko/baramMesh tutorial/Ahmed.md
+      - Cantilever Beam : ko/baramMesh tutorial/Cantilever.md
+      - CHT : ko/baramMesh tutorial/CHT.md
+      - Weir : ko/baramMesh tutorial/weir.md
+      - DrivAer : ko/baramMesh tutorial/drivAer.md
+      - Porous Media : ko/baramMesh tutorial/porous.md
+      - High Speed Train : ko/baramMesh tutorial/train.md
+      - Rotating Fan in Room : ko/baramMesh tutorial/fanInRoom.md      
+      - Propeller : ko/baramMesh tutorial/propeller.md
+      - Sirocco Fan : ko/baramMesh tutorial/siroccofan.md
+      - 3D Cavity : ko/baramMesh tutorial/cavity.md
+      - Gap Refinement : ko/baramMesh tutorial/gap.md
+      - Mixer : ko/baramMesh tutorial/mixer.md
+      - Fan : ko/baramMesh tutorial/fan.md
+      - Axi-symmetric Nozzle : ko/baramMesh tutorial/nozzle.md
 
 extra_javascript:
   - https://polyfill.io/v3/polyfill.min.js?features=es6
