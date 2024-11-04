@@ -1,6 +1,11 @@
 # Welcome to BARAM Page
-
+<select id="language-selector">
+  <option value="en">English</option>
+  <option value="ko">한국어</option>
+</select>
 ## CFD for Everyone and Everywhere!!
+
+
 
 안녕하세요 넥스트폼입니다.
 

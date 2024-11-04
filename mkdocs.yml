@@ -11,28 +11,28 @@ nav:
   - English:
     - Installation: en/installation.md
     - Release Notes: en/release_notes.md
-    - baramFlow Tutorial Guides:
-      - Mixing Pipe: en/baramFlow tutorial/2023-09-05-MixingPipe-post.md
-      - Ahmed Body: en/baramFlow tutorial/2023-09-05-AhmedBody-post.md
+    - baramFlow tutorial Guides:
+      - Mixing Pipe: en/baramFlow_tutorial/2023-09-05-MixingPipe-post.md
+      - Ahmed Body: en/baramFlow_tutorial/2023-09-05-AhmedBody-post.md
   - 한국어:
     - 설치: ko/baramFlow User Guide/install.md
     - 릴리즈 노트: ko/release_notes.md
     - baramFlow 튜토리얼:
-      - index: ko/baramFlow tutorial/index.md
-      - 간단한 비압축성 유동 예제: ko/baramFlow tutorial/simple_incompressible.md
-      - 자동차 외부 유동 예제: ko/baramFlow tutorial/car_external.md
-      - 비정상 상태 유동 예제: ko/baramFlow tutorial/transient.md
-      - 열전달 예제: ko/baramFlow tutorial/heatTransfer.md
-      - 회전체 해석 예제: ko/baramFlow tutorial/rotate.md
-      - 다상유동 해석 예제: ko/baramFlow tutorial/multiphase.md
-      - 다공성 해석 예제: ko/baramFlow tutorial/porous.md
-      - 대기경계층 해석 예제: ko/baramFlow tutorial/ABL.md
-      - 비뉴턴유체 해석 예제: ko/baramFlow tutorial/nonNewtonian.md
-      - 화학종 해석 예제: ko/baramFlow tutorial/species.md
-      - 사용자 정의 스칼라 해석 예제: ko/baramFlow tutorial/uds.md
-      - 압축성 아음속 유동 해석 예제: ko/baramFlow tutorial/subsonic.md
-      - 밀도 기반 압축성 유동 해석 예제: ko/baramFlow tutorial/densityBased.md
-      - 일괄계산 유동 해석 예제: ko/baramFlow tutorial/batchRun.md
+      - index: ko/baramFlow_tutorial/index.md
+      - 간단한 비압축성 유동 예제: ko/baramFlow_tutorial/simple_incompressible.md
+      - 자동차 외부 유동 예제: ko/baramFlow_tutorial/car_external.md
+      - 비정상 상태 유동 예제: ko/baramFlow_tutorial/transient.md
+      - 열전달 예제: ko/baramFlow_tutorial/heatTransfer.md
+      - 회전체 해석 예제: ko/baramFlow_tutorial/rotate.md
+      - 다상유동 해석 예제: ko/baramFlow_tutorial/multiphase.md
+      - 다공성 해석 예제: ko/baramFlow_tutorial/porous.md
+      - 대기경계층 해석 예제: ko/baramFlow_tutorial/ABL.md
+      - 비뉴턴유체 해석 예제: ko/baramFlow_tutorial/nonNewtonian.md
+      - 화학종 해석 예제: ko/baramFlow_tutorial/species.md
+      - 사용자 정의 스칼라 해석 예제: ko/baramFlow_tutorial/uds.md
+      - 압축성 아음속 유동 해석 예제: ko/baramFlow_tutorial/subsonic.md
+      - 밀도 기반 압축성 유동 해석 예제: ko/baramFlow_tutorial/densityBased.md
+      - 일괄계산 유동 해석 예제: ko/baramFlow_tutorial/batchRun.md
     - baramFlow 유저 가이드:
       - intro: ko/baramFlow User Guide/intro.md
       - index: ko/baramFlow User Guide/index.md      
@@ -54,8 +54,8 @@ nav:
       - index: ko/baramMesh tutorial/index.md
       - Mixing Pipe : ko/baramMesh tutorial/mixingPipe.md
       - Ahmed Body : ko/baramMesh tutorial/Ahmed.md
-      - Cantilever Beam : ko/baramMesh tutorial/Cantilever.md
-      - CHT : ko/baramMesh tutorial/CHT.md
+      - Cantilever Beam : ko/baramMesh tutorial/cantilever.md
+      - CHT : ko/baramMesh tutorial/CHTMesh.md
       - Weir : ko/baramMesh tutorial/weir.md
       - DrivAer : ko/baramMesh tutorial/drivAer.md
       - Porous Media : ko/baramMesh tutorial/porous.md
@@ -78,8 +78,14 @@ extra_css:
 
 plugins:
   - search:
+  - awesome-pages:
+  - section-index:
   - i18n:
-      default_language: en
+      default_language: ko
       languages:
         en: Enlish
         ko: 한국어
+
+markdown_extensions:
+  - toc:
+      toc_depth: 2
