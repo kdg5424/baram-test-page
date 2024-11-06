@@ -17,6 +17,8 @@ nav:
   - English:
     - Installation: en/installation.md
     - Release Notes: en/release_notes.md
+    - feature Overview: en/feature_overview.md
+    - Q&A: en/QA.md
     - baramFlow Tutorials:
       - Simple incompressible flow: en/flow_tutorial_EN/simple_incompressible.md
       - Vehicle external flow: en/flow_tutorial_EN/car_external.md
@@ -76,6 +78,8 @@ nav:
   - 한국어:
     - 설치: ko/installation.md
     - 릴리즈 노트: ko/release_notes.md
+    - 프로그램 특징: ko/feature_overview.md
+    - 문의: ko/QA.md
     - baramFlow 튜토리얼:
       - 간단한 비압축성 유동 예제: ko/flow_tutorial/simple_incompressible.md
       - 자동차 외부 유동 예제: ko/flow_tutorial/car_external.md

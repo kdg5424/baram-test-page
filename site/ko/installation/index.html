@@ -20,7 +20,7 @@
     
     
       
-        <title>Installation - BARAM Page</title>
+        <title>설치 - BARAM Page</title>
       
     
     
@@ -64,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#installing-baram-for-windows-and-macos" class="md-skip">
+        <a href="#windows-macos" class="md-skip">
           Skip to content
         </a>
       
@@ -100,7 +100,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Installation
+              설치
             
           </span>
         </div>
@@ -374,8 +374,6 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
-        
-      
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
           
@@ -404,8 +402,6 @@
   
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -414,18 +410,45 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#supported-platforms" class="md-nav__link">
+  <a href="#windows-macos" class="md-nav__link">
     <span class="md-ellipsis">
-      Supported Platforms
+      Windows와 macOS 설치
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#baram-requires-following-installed-software" class="md-nav__link">
+  <a href="#os" class="md-nav__link">
     <span class="md-ellipsis">
-      BARAM requires following installed software:
+      지원 OS
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      사전에 설치되어야 하는 소프트웨어
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#baram" class="md-nav__link">
+    <span class="md-ellipsis">
+      BARAM 소스코드 다운로드
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#paraview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Paraview [선택사항]
     </span>
   </a>
   
@@ -452,6 +475,48 @@
   
   <span class="md-ellipsis">
     릴리즈 노트
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../feature_overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    프로그램 특징
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../QA/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    문의
   </span>
   
 
@@ -655,14 +720,14 @@
                   
 
 
-<p>안녕하세요 넥스트폼입니다.</p>
-<h1 id="installing-baram-for-windows-and-macos">Installing BARAM for Windows and macOS</h1>
-<p>Binary installation package for 64-bit windows and disk image for macOS with Apple Silicon are here for convenience.
-Download them from following links.</p>
-<p><a class="btn btn-purple text-center fs-5" href="https://d3c6e16xufx1gb.cloudfront.net/BARAM-24.4.0-setup.exe" onclick="trackDownload('BARAM-24.4.0-setup.exe')">Download BARAM v24.4.0 Installer for 64-bit Windows ›</a></p>
-<p><strong>NOTE: For macOS, <a href="https://formulae.brew.sh/formula/open-mpi"><em>open-mpi</em></a> Homebrew Formula should be installed in advance.</strong></p>
+  <h1>설치</h1>
+
+<h2 id="windows-macos">Windows와 macOS 설치</h2>
+<p>Binary 형식의 설치 파일 (Windows 64bit 전용)과 macOS Apple Silicon을 제공하고 있습니다. 아래 링크에서 다운로드 받으세요.</p>
+<p><a class="btn btn-purple text-center fs-5" href="https://d3c6e16xufx1gb.cloudfront.net/BARAM-24.4.0-setup.exe" onclick="trackDownload('BARAM-24.4.0-setup.exe')">BARAM V24.4.0 Windows 설치파일 ›</a></p>
+<p><strong>NOTE: macOS는 <a href="https://formulae.brew.sh/formula/open-mpi"><em>open-mpi</em></a> Homebrew Formula 가 설치되어 있어야 합니다.</strong></p>
 <p><a .fs-5onclick="trackDownload('BARAM-24.4.0.dmg')" class="btn btn-blue text-center" href="https://d3c6e16xufx1gb.cloudfront.net/BARAM-24.4.0.dmg">Download BARAM v24.4.0 Disk Image(.dmg) for macOS with Apple Silicon ›</a></p>
-<h2 id="supported-platforms">Supported Platforms</h2>
+<h2 id="os">지원 OS</h2>
 <ul>
 <li>Windows 10 or newer</li>
 <li>macOS 10.14 or newer (Apple Silicon only)</li>
@@ -671,14 +736,14 @@ Download them from following links.</p>
 <li>OpenSUSE Leap 15.4</li>
 <li>Linux Mint 21 "Vanessa"</li>
 </ul>
-<h2 id="baram-requires-following-installed-software">BARAM requires following installed software:</h2>
+<h2 id="_1">사전에 설치되어야 하는 소프트웨어</h2>
 <ul>
 <li>Python <em>3.9.x</em></li>
 <li><a href="https://docs.microsoft.com/en-us/message-passing-interface/microsoft-mpi">MS-MPI</a> 10.0 or newer ( Windows Only )</li>
 <li>OpenMPI 4.1 or newer ( Linux, macOS )</li>
 <li>GNU C Compiler or any other C Compiler ( Linux, macOS )</li>
 </ul>
-<h1 id="installing-baram-from-source-code">Installing BARAM from source code</h1>
+<h2 id="baram">BARAM 소스코드 다운로드</h2>
 <ul>
   {% assign sorted_posts = site.categories.installation | sort: 'title' %}
   {% for post in sorted_posts %}
@@ -686,7 +751,7 @@ Download them from following links.</p>
   {% endfor %}
 </ul>
 
-<h2 id="paraview-optional">Paraview [Optional]</h2>
+<h2 id="paraview">Paraview [선택사항]</h2>
 <p><em>BaramFlow</em> has a menu that can launch <a href="https://www.paraview.org/"><em>ParaView</em></a> for convenience.
 If <em>ParaView</em> is installed in the system, this menu launches <em>ParaView</em> in the case foler.</p>
 
@@ -695,9 +760,6 @@ If <em>ParaView</em> is installed in the system, this menu launches <em>ParaView
 
 
 
-
-  
-  
 
 
 

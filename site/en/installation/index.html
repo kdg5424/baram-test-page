@@ -332,8 +332,6 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
-        
-      
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
           
@@ -362,14 +360,21 @@
   
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#installing-baram-for-windows-and-macos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installing BARAM for Windows and macOS
+    </span>
+  </a>
+  
+</li>
       
         <li class="md-nav__item">
   <a href="#supported-platforms" class="md-nav__link">
@@ -384,6 +389,24 @@
   <a href="#baram-requires-following-installed-software" class="md-nav__link">
     <span class="md-ellipsis">
       BARAM requires following installed software:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installing-baram-from-source-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installing BARAM from source code
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#paraview-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      Paraview [Optional]
     </span>
   </a>
   
@@ -410,6 +433,48 @@
   
   <span class="md-ellipsis">
     Release Notes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../feature_overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    feature Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../QA/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Q&A
   </span>
   
 
@@ -655,7 +720,9 @@
                   
 
 
-<h1 id="installing-baram-for-windows-and-macos">Installing BARAM for Windows and macOS</h1>
+  <h1>Installation</h1>
+
+<h2 id="installing-baram-for-windows-and-macos">Installing BARAM for Windows and macOS</h2>
 <p>Binary installation package for 64-bit windows and disk image for macOS with Apple Silicon are here for convenience.
 Download them from following links.</p>
 <p><a class="btn btn-purple text-center fs-5" href="https://d3c6e16xufx1gb.cloudfront.net/BARAM-24.4.0-setup.exe" onclick="trackDownload('BARAM-24.4.0-setup.exe')">Download BARAM v24.4.0 Installer for 64-bit Windows ›</a></p>
@@ -677,7 +744,7 @@ Download them from following links.</p>
 <li>OpenMPI 4.1 or newer ( Linux, macOS )</li>
 <li>GNU C Compiler or any other C Compiler ( Linux, macOS )</li>
 </ul>
-<h1 id="installing-baram-from-source-code">Installing BARAM from source code</h1>
+<h2 id="installing-baram-from-source-code">Installing BARAM from source code</h2>
 <ul>
   {% assign sorted_posts = site.categories.installation | sort: 'title' %}
   {% for post in sorted_posts %}
@@ -694,9 +761,6 @@ If <em>ParaView</em> is installed in the system, this menu launches <em>ParaView
 
 
 
-
-  
-  
 
 
 

@@ -1,9 +1,4 @@
----
-nav_order: 3
-layout: page
-title: Installation
----
-# Installing BARAM for Windows and macOS
+## Installing BARAM for Windows and macOS
 Binary installation package for 64-bit windows and disk image for macOS with Apple Silicon are here for convenience.
 Download them from following links.
 
@@ -28,7 +23,7 @@ Download them from following links.
 * OpenMPI 4.1 or newer ( Linux, macOS )
 * GNU C Compiler or any other C Compiler ( Linux, macOS )
 
-# Installing BARAM from source code
+## Installing BARAM from source code
 
 <ul>
   {% assign sorted_posts = site.categories.installation | sort: 'title' %}
