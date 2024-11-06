@@ -145,7 +145,8 @@ extra_javascript:
 
 extra_css:
   - assets/css/custom.css
-
+  - stylesheets/extra.css
+  
 plugins:
   - search:
   - awesome-pages:
