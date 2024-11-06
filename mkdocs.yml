@@ -1,9 +1,15 @@
 site_name: BARAM Page
 theme:
   name: material
+  navigation_depth: 4
   language: en
   features:
     - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.expand
+    - navigation.prune
+    - toc.integrate
+    - navigation.top
     - i18n
 
 nav:
@@ -11,63 +17,123 @@ nav:
   - English:
     - Installation: en/installation.md
     - Release Notes: en/release_notes.md
-    - baramFlow tutorial Guides:
-      - Mixing Pipe: en/baramFlow_tutorial/2023-09-05-MixingPipe-post.md
-      - Ahmed Body: en/baramFlow_tutorial/2023-09-05-AhmedBody-post.md
+    - baramFlow Tutorials:
+      - Simple incompressible flow: en/flow_tutorial_EN/simple_incompressible.md
+      - Vehicle external flow: en/flow_tutorial_EN/car_external.md
+      - Transient flow: en/flow_tutorial_EN/transient.md
+      - Rotating machinery: en/flow_tutorial_EN/rotate.md
+      - Atmospheric boundary layer: en/flow_tutorial_EN/ABL.md
+      - Porous media: en/flow_tutorial_EN/porous.md
+      - Heat transfer: en/flow_tutorial_EN/heatTransfer.md
+      - Species transport: en/flow_tutorial_EN/species.md
+      - User defined scalar: en/flow_tutorial_EN/uds.md
+      - Multi-phase flow: en/flow_tutorial_EN/multiphase.md
+      - Non-Newtonian fluid: en/flow_tutorial_EN/nonNewtonian.md
+      - Compressible subsonic flow: en/flow_tutorial_EN/subsonic.md
+      - Density based compressible solver: en/flow_tutorial_EN/densityBased.md
+      - Batch run: en/flow_tutorial_EN/batchRun.md
+    - baramFlow Users' Guide:
+      - Introduction: en/flow_manual_EN/intro.md
+      - Installation and Start: en/flow_manual_EN/install.md
+      - General: en/flow_manual_EN/general.md
+      - Models: en/flow_manual_EN/model.md
+      - Materials: en/flow_manual_EN/material.md
+      - Cell Zone: en/flow_manual_EN/cellZone.md
+      - Boundary Conditions: en/flow_manual_EN/boundary.md
+      - Reference Values: en/flow_manual_EN/reference.md
+      - Numerical Conditions: en/flow_manual_EN/numerical.md
+      - Monitor: en/flow_manual_EN/monitor.md
+      - Initialization: en/flow_manual_EN/initial.md
+      - Run Conditions: en/flow_manual_EN/runCondition.md
+      - Run: en/flow_manual_EN/run.md
+      - Report: en/flow_manual_EN/report.md
+      - NextFOAM in BaramFlow: en/flow_manual_EN/nextfoam.md
+    - baramMesh Tutorials:
+      - Mixing pipe: en/mesh_tutorial_EN/mixingPipe.md
+      - Ahmed body: en/mesh_tutorial_EN/Ahmed.md
+      - DrivAer: en/mesh_tutorial_EN/drivAer.md
+      - High speed train: en/mesh_tutorial_EN/train.md
+      - Fan: en/mesh_tutorial_EN/fan.md
+      - Propeller: en/mesh_tutorial_EN/propeller.md
+      - Fan in room: en/mesh_tutorial_EN/fanInRoom.md
+      - Mixer: en/mesh_tutorial_EN/mixer.md
+      - Gap refinement: en/mesh_tutorial_EN/gap.md
+      - Porous media: en/mesh_tutorial_EN/porous.md 
+      - Axi-symmetric nozzle: en/mesh_tutorial_EN/nozzle.md
+      - Cantilever beam: en/mesh_tutorial_EN/cantilever.md
+      - Weir: en/mesh_tutorial_EN/weir.md
+      - Cavity: en/mesh_tutorial_EN/cavity.md
+    - BaramMesh Users' Guide:
+      - Introduction: en/mesh_manual_EN/intro.md
+      - Installation and Start: en/mesh_manual_EN/install.md
+      - Geometry: en/mesh_manual_EN/geometry.md
+      - Region: en/mesh_manual_EN/region.md
+      - Base Grid: en/mesh_manual_EN/baseGrid.md
+      - Castellation: en/mesh_manual_EN/castellation.md
+      - Snap: en/mesh_manual_EN/snap.md
+      - Boundary Layer: en/mesh_manual_EN/boundaryLayer.md
+      - Export: en/mesh_manual_EN/export.md
   - 한국어:
-    - 설치: ko/baramFlow User Guide/install.md
+    - 설치: ko/installation.md
     - 릴리즈 노트: ko/release_notes.md
     - baramFlow 튜토리얼:
-      - index: ko/baramFlow_tutorial/index.md
-      - 간단한 비압축성 유동 예제: ko/baramFlow_tutorial/simple_incompressible.md
-      - 자동차 외부 유동 예제: ko/baramFlow_tutorial/car_external.md
-      - 비정상 상태 유동 예제: ko/baramFlow_tutorial/transient.md
-      - 열전달 예제: ko/baramFlow_tutorial/heatTransfer.md
-      - 회전체 해석 예제: ko/baramFlow_tutorial/rotate.md
-      - 다상유동 해석 예제: ko/baramFlow_tutorial/multiphase.md
-      - 다공성 해석 예제: ko/baramFlow_tutorial/porous.md
-      - 대기경계층 해석 예제: ko/baramFlow_tutorial/ABL.md
-      - 비뉴턴유체 해석 예제: ko/baramFlow_tutorial/nonNewtonian.md
-      - 화학종 해석 예제: ko/baramFlow_tutorial/species.md
-      - 사용자 정의 스칼라 해석 예제: ko/baramFlow_tutorial/uds.md
-      - 압축성 아음속 유동 해석 예제: ko/baramFlow_tutorial/subsonic.md
-      - 밀도 기반 압축성 유동 해석 예제: ko/baramFlow_tutorial/densityBased.md
-      - 일괄계산 유동 해석 예제: ko/baramFlow_tutorial/batchRun.md
+      - 간단한 비압축성 유동 예제: ko/flow_tutorial/simple_incompressible.md
+      - 자동차 외부 유동 예제: ko/flow_tutorial/car_external.md
+      - 비정상 상태 유동 예제: ko/flow_tutorial/transient.md
+      - 열전달 예제: ko/flow_tutorial/heatTransfer.md
+      - 회전체 해석 예제: ko/flow_tutorial/rotate.md
+      - 다상유동 해석 예제: ko/flow_tutorial/multiphase.md
+      - 다공성 해석 예제: ko/flow_tutorial/porous.md
+      - 대기경계층 해석 예제: ko/flow_tutorial/ABL.md
+      - 비뉴턴유체 해석 예제: ko/flow_tutorial/nonNewtonian.md
+      - 화학종 해석 예제: ko/flow_tutorial/species.md
+      - 사용자 정의 스칼라 해석 예제: ko/flow_tutorial/uds.md
+      - 압축성 아음속 유동 해석 예제: ko/flow_tutorial/subsonic.md
+      - 밀도 기반 압축성 유동 해석 예제: ko/flow_tutorial/densityBased.md
+      - 일괄계산 유동 해석 예제: ko/flow_tutorial/batchRun.md
     - baramFlow 유저 가이드:
-      - intro: ko/baramFlow User Guide/intro.md
-      - index: ko/baramFlow User Guide/index.md      
-      - nomenclature: ko/baramFlow User Guide/nomenclature.md
-      - general: ko/baramFlow User Guide/general.md
-      - model: ko/baramFlow User Guide/model.md
-      - material: ko/baramFlow User Guide/material.md      
-      - boundary: ko/baramFlow User Guide/boundary.md
-      - cellZone: ko/baramFlow User Guide/cellZone.md
-      - monitor: ko/baramFlow User Guide/monitor.md
-      - reference: ko/baramFlow User Guide/reference.md
-      - numerical: ko/baramFlow User Guide/numerical.md
-      - nextfoam: ko/baramFlow User Guide/nextfoam.md
-      - initial: ko/baramFlow User Guide/initial.md
-      - run condition: ko/baramFlow User Guide/runCondition.md
-      - run: ko/baramFlow User Guide/run.md
-      - report: ko/baramFlow User Guide/report.md
+      - 개요(Introduction): ko/flow_manual/intro.md
+      - 설치와 실행(Installation and Start): ko/flow_manual/install.md
+      - 일반(General): ko/flow_manual/general.md
+      - 모델(Models): ko/flow_manual/model.md
+      - 물질(Materials): ko/flow_manual/material.md
+      - 셀존(Cell Zone): ko/flow_manual/cellZone.md
+      - 경계조건(Boundary Conditions): ko/flow_manual/boundary.md
+      - 기준 값(Reference Values): ko/flow_manual/reference.md
+      - 수치해석 기법(Numerical Conditions): ko/flow_manual/numerical.md
+      - 모니터(Monitor): ko/flow_manual/monitor.md
+      - 초기화(Initialization): ko/flow_manual/initial.md
+      - 계산 조건(Run Conditions): ko/flow_manual/runCondition.md
+      - 실행(Run): ko/flow_manual/run.md
+      - 데이터 추출(Report): ko/flow_manual/report.md
+      - NextFOAM 파일 설정: ko/flow_manual/nextfoam.md
+      - 용어 해설(Nomenclature): ko/flow_manual/nomenclature.md
     - baramMesh 튜토리얼:
-      - index: ko/baramMesh tutorial/index.md
-      - Mixing Pipe : ko/baramMesh tutorial/mixingPipe.md
-      - Ahmed Body : ko/baramMesh tutorial/Ahmed.md
-      - Cantilever Beam : ko/baramMesh tutorial/cantilever.md
-      - CHT : ko/baramMesh tutorial/CHTMesh.md
-      - Weir : ko/baramMesh tutorial/weir.md
-      - DrivAer : ko/baramMesh tutorial/drivAer.md
-      - Porous Media : ko/baramMesh tutorial/porous.md
-      - High Speed Train : ko/baramMesh tutorial/train.md
-      - Rotating Fan in Room : ko/baramMesh tutorial/fanInRoom.md      
-      - Propeller : ko/baramMesh tutorial/propeller.md
-      - Sirocco Fan : ko/baramMesh tutorial/siroccofan.md
-      - 3D Cavity : ko/baramMesh tutorial/cavity.md
-      - Gap Refinement : ko/baramMesh tutorial/gap.md
-      - Mixer : ko/baramMesh tutorial/mixer.md
-      - Fan : ko/baramMesh tutorial/fan.md
-      - Axi-symmetric Nozzle : ko/baramMesh tutorial/nozzle.md
+      - 파이프 유동: ko/mesh_tutorial/mixingPipe.md
+      - Ahmed body: ko/mesh_tutorial/Ahmed.md
+      - DrivAer: ko/mesh_tutorial/drivAer.md
+      - 고속열차: ko/mesh_tutorial/train.md
+      - 팬: ko/mesh_tutorial/fan.md
+      - 프로펠러: ko/mesh_tutorial/propeller.md
+      - 팬이 있는 실내 공간: ko/mesh_tutorial/fanInRoom.md
+      - 혼합기: ko/mesh_tutorial/mixer.md
+      - Gap refinement: ko/mesh_tutorial/gap.md
+      - 다공성 매질: ko/mesh_tutorial/porous_mesh.md 
+      - 축대칭 노즐: ko/mesh_tutorial/nozzle.md
+      - 외팔보: ko/mesh_tutorial/cantilever.md
+      - 위어: ko/mesh_tutorial/weir.md
+      - 공동(Cavity): ko/mesh_tutorial/cavity.md
+    - baramMesh 유저 가이드:
+      - 개요(Introduction): ko/mesh_manual/intro.md
+      - 설치와 실행(Installation and Start): ko/mesh_manual/install.md
+      - 형상(Geometry): ko/mesh_manual/geometry.md
+      - 영역(Region): ko/mesh_manual/region.md
+      - 배경격자(Base Grid): ko/mesh_manual/baseGrid.md
+      - 격자세분화(Castellation): ko/mesh_manual/castellation.md
+      - 형상구현(Snap): ko/mesh_manual/snap.md
+      - 경계층 격자(Boundary Layer): ko/mesh_manual/boundaryLayer.md
+      - 내보내기(Export): ko/mesh_manual/export.md
+      - 용어해설: ko/mesh_manual/nomenclature.md
 
 extra_javascript:
   - https://polyfill.io/v3/polyfill.min.js?features=es6
@@ -81,7 +147,7 @@ plugins:
   - awesome-pages:
   - section-index:
   - i18n:
-      default_language: ko
+      default_language: en
       languages:
         en: Enlish
         ko: 한국어
@@ -89,3 +155,19 @@ plugins:
 markdown_extensions:
   - toc:
       toc_depth: 2
+  - pymdownx.arithmatex
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_generator: !!python/name:pymdownx.emoji.to_svg
+  - pymdownx.inlinehilite
+  - pymdownx.magiclink
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
